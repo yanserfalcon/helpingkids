@@ -1,77 +1,185 @@
 ---
-// Aquí podrías importar componentes si decides crecer el proyecto
-const title = "Clases de Piano en Miami | Tania";
+// index.astro - Versión Luxury para Piano Miami
+const title = "Harmony Piano Studio | Clases de Piano en Miami";
 ---
 
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{title}</title>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+		
 		<script src="https://cdn.tailwindcss.com"></script>
 		
-		
+		<style>
+			:root {
+				--primary: #d4a373; /* Dorado suave */
+				--dark: #1c1917;    /* Piedra oscura */
+			}
+			body { 
+				font-family: 'Plus Jakarta Sans', sans-serif; 
+				background-color: #fdfcfb;
+			}
+			h1, h2, h3, .font-serif { 
+				font-family: 'Playfair Display', serif; 
+			}
+			.glass {
+				background: rgba(255, 255, 255, 0.7);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				border: 1px solid rgba(255, 255, 255, 0.3);
+			}
+			.hero-gradient {
+				background: linear-gradient(to bottom, rgba(28,25,23,0.8), rgba(28,25,23,0.4));
+			}
+		</style>
 	</head>
-	<body class="bg-stone-50 text-stone-900 font-sans">
+	<body class="text-stone-800">
 
-		<nav class="flex justify-between items-center p-6 bg-white shadow-sm sticky top-0 z-50">
-			<div class="text-2xl font-serif font-bold tracking-tighter">PIANO<span class="text-amber-600">MIAMI</span></div>
-			<div class="space-x-6 hidden md:block">
-				<a href="#inicio" class="hover:text-amber-600 transition">Inicio</a>
-				<a href="#clases" class="hover:text-amber-600 transition">Clases</a>
-				<a href="#contacto" class="bg-stone-900 text-white px-5 py-2 rounded-full hover:bg-amber-600 transition">Contactar</a>
+		<nav class="fixed w-full z-[100] px-6 py-4">
+			<div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-8 py-4 shadow-xl">
+				<div class="text-xl font-bold tracking-[0.2em] text-stone-900 uppercase">
+					Piano<span class="text-[#d4a373]">Miami</span>
+				</div>
+				<div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
+					<a href="#inicio" class="hover:text-[#d4a373] transition-colors">Inicio</a>
+					<a href="#metodo" class="hover:text-[#d4a373] transition-colors">El Método</a>
+					<a href="#clases" class="hover:text-[#d4a373] transition-colors">Programas</a>
+					<a href="#contacto" class="bg-stone-900 text-white px-6 py-3 rounded-full hover:bg-[#d4a373] transition-all duration-300">Reserva ahora</a>
+				</div>
 			</div>
 		</nav>
 
-		<header id="inicio" class="relative h-[80vh] flex items-center justify-center text-center bg-stone-900 text-white">
-			<div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1520527053377-4710dbf6c0eb?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
-			<div class="relative z-10 px-4">
-				<h1 class="text-5xl md:text-7xl font-serif mb-4">Despierta la música en ti</h1>
-				<p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto text-stone-300">
-					Clases personalizadas de piano en el corazón de Miami para todas las edades y niveles.
+		<section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+			<div class="absolute inset-0 z-0">
+				<img 
+					src="https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop" 
+					class="w-full h-full object-cover scale-105" 
+					alt="Piano"
+				/>
+				<div class="absolute inset-0 hero-gradient"></div>
+			</div>
+
+			<div class="relative z-10 text-center px-6 max-w-4xl">
+				<span class="text-[#d4a373] uppercase tracking-[0.5em] text-xs font-bold mb-6 block animate-fade-in">Private Music Education</span>
+				<h1 class="text-6xl md:text-8xl text-white mb-8 leading-[1.1]">
+					Toca con <span class="italic">maestría.</span>
+				</h1>
+				<p class="text-stone-300 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+					En el corazón de Miami, transformamos la técnica en arte. Clases exclusivas para mentes creativas.
 				</p>
-				<a href="#contacto" class="bg-amber-600 text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-amber-500 transition shadow-lg">Reserva una Clase de Prueba</a>
+				<div class="flex flex-col md:flex-row gap-4 justify-center">
+					<a href="#contacto" class="bg-[#d4a373] text-white px-12 py-5 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-white hover:text-stone-900 transition-all shadow-2xl">
+						Solicitar Audición
+					</a>
+				</div>
 			</div>
-		</header>
+			
+			<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+				<div class="w-[1px] h-16 bg-white/30"></div>
+			</div>
+		</section>
 
-		<section id="clases" class="py-20 px-6 max-w-6xl mx-auto">
-			<h2 class="text-4xl font-serif text-center mb-16">Nuestros Programas</h2>
-			<div class="grid md:grid-cols-3 gap-10">
-				<div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-amber-600">
-					<h3 class="text-2xl font-bold mb-4">Niños</h3>
-					<p class="text-stone-600 mb-6">Métodos lúdicos diseñados para desarrollar el oído y la motricidad desde temprana edad.</p>
-					<span class="text-amber-600 font-bold">$60 / sesión</span>
+		<section id="metodo" class="py-32 px-6 bg-white">
+			<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+				<div class="relative">
+					<div class="absolute -top-10 -left-10 w-40 h-40 bg-[#d4a373]/10 rounded-full blur-3xl"></div>
+					<img src="https://images.unsplash.com/photo-1594122230689-45899d9e6f69?q=80&w=2070&auto=format&fit=crop" class="rounded-3xl shadow-2xl relative z-10" alt="Education" />
 				</div>
-				<div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-stone-900">
-					<h3 class="text-2xl font-bold mb-4">Adultos</h3>
-					<p class="text-stone-600 mb-6">Aprende tus canciones favoritas con un horario flexible adaptado a tu ritmo de vida.</p>
-					<span class="text-amber-600 font-bold">$75 / sesión</span>
-				</div>
-				<div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-stone-900">
-					<h3 class="text-2xl font-bold mb-4">Avanzado</h3>
-					<p class="text-stone-600 mb-6">Perfeccionamiento técnico, teoría musical profunda y preparación para conservatorio.</p>
-					<span class="text-amber-600 font-bold">$90 / sesión</span>
+				<div>
+					<h2 class="text-5xl mb-8 leading-tight italic">Un enfoque diseñado para la excelencia.</h2>
+					<p class="text-stone-500 text-lg leading-relaxed mb-8">
+						No solo enseñamos a leer partituras; cultivamos la sensibilidad musical. Nuestro estudio utiliza pianos de cola alemanes en un entorno diseñado para la concentración y la inspiración.
+					</p>
+					<div class="grid grid-cols-2 gap-8">
+						<div>
+							<h4 class="font-bold text-stone-900 mb-2 uppercase text-xs tracking-widest">Ubicación</h4>
+							<p class="text-sm text-stone-500 italic">Brickell / Downtown Miami</p>
+						</div>
+						<div>
+							<h4 class="font-bold text-stone-900 mb-2 uppercase text-xs tracking-widest">Instrumento</h4>
+							<p class="text-sm text-stone-500 italic">Steinway & Sons Professional</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<section id="contacto" class="py-20 bg-stone-900 text-white px-6">
-			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-4xl font-serif mb-8">¿Listo para empezar?</h2>
-				<p class="mb-12 text-stone-400">Envíanos un mensaje y te contactaremos en menos de 24 horas.</p>
+		<section id="clases" class="py-32 px-6 bg-[#f8f5f2]">
+			<div class="max-w-7xl mx-auto">
+				<div class="text-center mb-20">
+					<h2 class="text-5xl mb-4">Programas Exclusivos</h2>
+					<div class="w-20 h-[2px] bg-[#d4a373] mx-auto"></div>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 group border border-stone-100">
+						<div class="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center mb-8 group-hover:bg-[#d4a373] transition-colors">
+							<span class="text-stone-400 group-hover:text-white text-xs">01</span>
+						</div>
+						<h3 class="text-2xl mb-4 italic font-bold">Iniciación Infantil</h3>
+						<p class="text-stone-500 text-sm leading-relaxed mb-8">Desarrollo cognitivo y motriz a través del juego y la teoría musical básica.</p>
+						<p class="text-[#d4a373] font-bold text-sm tracking-widest uppercase">$240 / Mes</p>
+					</div>
+
+					<div class="bg-stone-900 p-12 rounded-[2rem] shadow-2xl transition-all duration-500 transform md:-translate-y-4">
+						<div class="w-12 h-12 bg-stone-800 rounded-full flex items-center justify-center mb-8">
+							<span class="text-[#d4a373] text-xs font-bold italic">PRO</span>
+						</div>
+						<h3 class="text-2xl mb-4 italic font-bold text-white">Adult Performance</h3>
+						<p class="text-stone-400 text-sm leading-relaxed mb-8">Repertorio clásico y moderno adaptado a tu ritmo. Perfeccionamiento técnico avanzado.</p>
+						<p class="text-[#d4a373] font-bold text-sm tracking-widest uppercase">$320 / Mes</p>
+					</div>
+
+					<div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 group border border-stone-100">
+						<div class="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center mb-8 group-hover:bg-[#d4a373] transition-colors">
+							<span class="text-stone-400 group-hover:text-white text-xs">03</span>
+						</div>
+						<h3 class="text-2xl mb-4 italic font-bold">Intensivo Conservatorio</h3>
+						<p class="text-stone-500 text-sm leading-relaxed mb-8">Preparación para exámenes oficiales y audiciones profesionales.</p>
+						<p class="text-[#d4a373] font-bold text-sm tracking-widest uppercase">Consultar</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contacto" class="py-32 bg-stone-900 text-white px-6">
+			<div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-20">
+				<div>
+					<h2 class="text-6xl mb-8 leading-tight italic">Comienza tu viaje.</h2>
+					<p class="text-stone-400 text-lg mb-12">Estamos en el área de Brickell. Envíanos tus datos para coordinar una clase de cortesía.</p>
+					<div class="space-y-6">
+						<p class="flex items-center text-stone-300">
+							<span class="w-10 h-10 border border-stone-700 rounded-full flex items-center justify-center mr-4">📍</span>
+							Miami, FL - Brickell District
+						</p>
+						<p class="flex items-center text-stone-300">
+							<span class="w-10 h-10 border border-stone-700 rounded-full flex items-center justify-center mr-4">✉️</span>
+							tania@pianomiami.com
+						</p>
+					</div>
+				</div>
 				
-				<form class="grid md:grid-cols-2 gap-4 text-left">
-					<input type="text" placeholder="Nombre completo" class="p-4 rounded bg-stone-800 border border-stone-700 focus:border-amber-600 outline-none" />
-					<input type="email" placeholder="Correo electrónico" class="p-4 rounded bg-stone-800 border border-stone-700 focus:border-amber-600 outline-none" />
-					<textarea placeholder="Cuéntanos tu nivel o interés" class="p-4 rounded bg-stone-800 border border-stone-700 focus:border-amber-600 outline-none md:col-span-2 h-32"></textarea>
-					<button type="submit" class="md:col-span-2 bg-amber-600 py-4 rounded font-bold hover:bg-amber-500 transition">Enviar Mensaje</button>
-				</form>
+				<div class="bg-white/5 p-10 rounded-3xl backdrop-blur-md border border-white/10">
+					<form class="space-y-6">
+						<input type="text" placeholder="Nombre" class="w-full bg-transparent border-b border-stone-700 py-4 outline-none focus:border-[#d4a373] transition-colors text-white" />
+						<input type="email" placeholder="Email" class="w-full bg-transparent border-b border-stone-700 py-4 outline-none focus:border-[#d4a373] transition-colors text-white" />
+						<textarea placeholder="Cuéntanos tu interés..." class="w-full bg-transparent border-b border-stone-700 py-4 outline-none focus:border-[#d4a373] transition-colors text-white h-32"></textarea>
+						<button class="w-full bg-[#d4a373] py-5 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-white hover:text-stone-900 transition-all shadow-xl">
+							Enviar Mensaje
+						</button>
+					</form>
+				</div>
 			</div>
 		</section>
 
-		<footer class="py-10 text-center text-stone-500 text-sm">
-			<p>© 2026 Piano Miami Studio - Florida, USA</p>
+		<footer class="py-20 text-center bg-stone-900 border-t border-white/5">
+			<p class="text-stone-600 text-[10px] uppercase tracking-[0.4em]">© 2026 Harmony Piano Studio | Miami, Florida</p>
 		</footer>
 
 	</body>
