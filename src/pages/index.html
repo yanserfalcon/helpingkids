@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Studio Miami | Excelencia Musical</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fafaf9; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .hero-overlay { background: linear-gradient(to bottom, rgba(28,25,23,0.8), rgba(28,25,23,0.5)); }
+    </style>
+</head>
+<body class="text-stone-900">
+
+    <nav class="fixed w-full z-50 p-6">
+        <div class="max-w-6xl mx-auto bg-white/80 backdrop-blur-md shadow-lg rounded-2xl p-4 flex justify-between items-center border border-white/20">
+            <div class="font-bold tracking-tighter text-xl uppercase">Piano<span class="text-amber-600">Miami</span></div>
+            <a href="#contacto" class="bg-stone-900 text-white px-6 py-2 rounded-full text-xs font-bold uppercase hover:bg-amber-600 transition">Contacto</a>
+        </div>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1520527053377-4710dbf6c0eb?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Piano Studio">
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="relative z-10 px-6">
+            <span class="text-amber-500 uppercase tracking-[0.4em] text-[10px] font-bold mb-4 block">Private Lessons in Florida</span>
+            <h1 class="text-5xl md:text-7xl mb-6">El arte de tocar <br><span class="italic text-stone-300">con el corazón.</span></h1>
+            <p class="text-lg md:text-xl text-stone-300 mb-10 max-w-2xl mx-auto font-light">Lecciones personalizadas para despertar el talento en niños y adultos.</p>
+            <a href="#contacto" class="inline-block bg-amber-600 px-10 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-white hover:text-stone-900 transition-all shadow-2xl">Reservar Clase de Prueba</a>
+        </div>
+    </header>
+
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="p-10 rounded-3xl bg-stone-50 border border-stone-100 hover:-translate-y-2 transition duration-300">
+                <h3 class="text-2xl mb-4 italic">Niños</h3>
+                <p class="text-stone-500 text-sm mb-6">Desarrollo creativo y motriz temprano a través de un método divertido y eficaz.</p>
+                <div class="text-amber-600 font-bold">$60 / sesión</div>
+            </div>
+            <div class="p-10 rounded-3xl bg-stone-900 text-white shadow-2xl scale-105">
+                <h3 class="text-2xl mb-4 italic">Adultos</h3>
+                <p class="text-stone-400 text-sm mb-6">Cumple tu sueño de aprender piano con horarios que se adaptan a tu vida profesional.</p>
+                <div class="text-amber-500 font-bold">$75 / sesión</div>
+            </div>
+            <div class="p-10 rounded-3xl bg-stone-50 border border-stone-100 hover:-translate-y-2 transition duration-300">
+                <h3 class="text-2xl mb-4 italic">Avanzado</h3>
+                <p class="text-stone-500 text-sm mb-6">Perfeccionamiento de técnica y preparación para audiciones de alto nivel.</p>
+                <div class="text-amber-600 font-bold">$90 / sesión</div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="py-12 text-center bg-stone-50 text-stone-400 text-[9px] uppercase tracking-[0.3em] border-t border-stone-200">
+        <p>© 2026 Piano Studio Miami - Florida, USA</p>
+    </footer>
+
+</body>
+</html>
