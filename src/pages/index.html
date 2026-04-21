@@ -17,12 +17,21 @@
 </head>
 <body class="text-stone-900">
 
-    <nav class="fixed w-full z-50 p-6">
-        <div class="max-w-6xl mx-auto bg-white/80 backdrop-blur-md shadow-lg rounded-2xl p-4 flex justify-between items-center border border-white/20">
+    
+    <nav class="fixed w-full z-[100] p-4 md:p-6">
+    <div class="max-w-6xl mx-auto bg-white/80 backdrop-blur-md shadow-lg rounded-2xl p-4 flex justify-between items-center border border-white/20">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-amber-600 rounded-lg flex items-center justify-center text-white font-serif font-bold">P</div>
             <div class="font-bold tracking-tighter text-xl uppercase">Piano<span class="text-amber-600">Miami</span></div>
-            <a href="#contacto" class="bg-stone-900 text-white px-6 py-2 rounded-full text-xs font-bold uppercase hover:bg-amber-600 transition">Contacto</a>
         </div>
-    </nav>
+        
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <a href="#inicio" class="hover:text-amber-600 transition">Inicio</a>
+            <a href="#clases" class="hover:text-amber-600 transition">Clases</a>
+            <a href="#contacto" class="bg-stone-900 text-white px-6 py-2 rounded-full hover:bg-amber-600 transition">Contacto</a>
+        </div>
+    </div>
+   </nav>
 
     <header class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <img src="https://images.unsplash.com/photo-1520527053377-4710dbf6c0eb?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Piano Studio">
