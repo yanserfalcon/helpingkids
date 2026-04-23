@@ -6,32 +6,47 @@
   <title>HelpingKids Piano | Piano Lessons in Miami</title>
   <meta name="description" content="Fun and professional piano lessons for kids in Miami. At-home and online classes. Build confidence through music." />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="text-gray-800">
 
 <!-- Header -->
-<header class="flex justify-between items-center p-6 shadow-md">
-  <h1 class="text-xl font-bold">HelpingKids Piano </h1>
-  <button onclick="toggleLang()" class="border px-3 py-1 rounded" id="langBtn">ES</button>
+<header class="flex justify-between items-center p-6 shadow-md bg-white sticky top-0 z-50">
+  <h1 class="text-2xl font-bold text-blue-600">🎹 HelpingKids</h1>
+  <div class="flex gap-4 items-center">
+    <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded">Book Now</a>
+    <button onclick="toggleLang()" class="border px-3 py-1 rounded" id="langBtn">ES</button>
+  </div>
 </header>
 
 <!-- Hero -->
-<section class="text-center py-20 bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-  <h2 id="title" class="text-4xl font-bold mb-4">Inspiring kids, one note at a time.</h2>
-  <p id="subtitle" class="text-lg mb-6">Private piano lessons for kids in South Florida</p>
-  <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-lg shadow">Book a Free Trial</a>
+<section class="relative text-center py-24 text-white">
+  <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10">
+    <h2 id="title" class="text-5xl font-bold mb-6">Inspiring kids, one note at a time.</h2>
+    <p id="subtitle" class="text-xl mb-6">Private piano lessons for kids in South Florida</p>
+    <a href="#contact" class="bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg shadow-lg text-lg">Book a Free Trial</a>
+  </div>
 </section>
 
-<!-- About -->
-<section class="p-10 max-w-4xl mx-auto text-center">
-  <h3 id="aboutTitle" class="text-2xl font-bold mb-4">About Us</h3>
-  <p id="aboutText">We help children develop confidence, discipline and creativity through personalized piano lessons. Available at home or online across Miami.</p>
+<!-- Why Choose Us -->
+<section class="p-16 bg-white text-center">
+  <h3 class="text-3xl font-bold mb-10">Why Parents Choose Us</h3>
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="p-6 shadow rounded">🎯 Personalized Learning</div>
+    <div class="p-6 shadow rounded">🏠 At-Home Convenience</div>
+    <div class="p-6 shadow rounded">⭐ Trusted by Families</div>
+  </div>
 </section>
 
 <!-- Services -->
-<section class="bg-gray-100 p-10">
-  <h3 class="text-2xl font-bold text-center mb-6">Our Services</h3>
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<section class="bg-gray-100 p-16 text-center">
+  <h3 class="text-3xl font-bold mb-10">Our Services</h3>
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
     <div class="bg-white p-6 rounded shadow hover:scale-105 transition">Private Lessons</div>
     <div class="bg-white p-6 rounded shadow hover:scale-105 transition">At Home</div>
     <div class="bg-white p-6 rounded shadow hover:scale-105 transition">Online Classes</div>
@@ -39,27 +54,32 @@
 </section>
 
 <!-- Testimonials -->
-<section class="p-10 bg-white">
-  <h3 class="text-2xl font-bold text-center mb-6">What Parents Say</h3>
-  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-    <div class="p-4 border rounded">"My son loves the classes and improved so fast!"</div>
-    <div class="p-4 border rounded">"Professional and very patient with kids."</div>
+<section class="p-16 bg-white text-center">
+  <h3 class="text-3xl font-bold mb-10">What Parents Say</h3>
+  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div class="p-6 border rounded shadow">"My son improved in just weeks. Amazing teacher!"</div>
+    <div class="p-6 border rounded shadow">"Very professional and patient with kids."</div>
   </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="p-10 max-w-3xl mx-auto">
-  <h3 class="text-2xl font-bold text-center mb-6">Contact Us</h3>
-  <form action="https://formspree.io/f/xrerooro" method="POST" class="flex flex-col gap-4">
+<section id="contact" class="p-16 bg-gray-100 text-center">
+  <h3 class="text-3xl font-bold mb-8">Contact Us</h3>
+  <form action="https://formspree.io/f/xrerooro" method="POST" class="max-w-2xl mx-auto flex flex-col gap-4">
     <input type="text" name="name" placeholder="Name" required class="border p-3 rounded" />
     <input type="email" name="email" placeholder="Email" required class="border p-3 rounded" />
     <textarea name="message" placeholder="Message" required class="border p-3 rounded"></textarea>
-    <button class="bg-blue-600 text-white p-3 rounded">Send Message</button>
+    <button class="bg-blue-600 text-white p-3 rounded text-lg">Send Message</button>
   </form>
 </section>
 
-<!-- WhatsApp  Button -->
-<a href="https://wa.me/17864619545" target="_blank" class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg">WhatsApp</a>
+<!-- Map -->
+<section class="p-10">
+  <iframe class="w-full h-80 rounded" src="https://maps.google.com/maps?q=10100%20Nicaragua%20Dr%20Cutler%20Bay%20FL&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/17864619545" target="_blank" class="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-lg text-lg">💬</a>
 
 <!-- Footer -->
 <footer class="bg-gray-900 text-white text-center p-6">
@@ -77,13 +97,9 @@ function toggleLang(){
   if(lang==='es'){
     title.innerText = 'Inspirando a los niños, una nota a la vez';
     subtitle.innerText = 'Clases de piano para niños en el sur de Florida';
-    aboutTitle.innerText = 'Sobre Nosotros';
-    aboutText.innerText = 'Ayudamos a los niños a desarrollar confianza y creatividad mediante clases personalizadas.';
   } else {
     title.innerText = 'Inspiring kids, one note at a time.';
     subtitle.innerText = 'Private piano lessons for kids in South Florida';
-    aboutTitle.innerText = 'About Us';
-    aboutText.innerText = 'We help children develop confidence, discipline and creativity through personalized piano lessons.';
   }
 }
 </script>
