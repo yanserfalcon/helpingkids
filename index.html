@@ -43,17 +43,34 @@
 </head>
 <body class="font-varela text-terracotta-brown bg-warm-beige">
 
-    <nav class="bg-sage-green p-4 text-warm-beige sticky top-0 z-50 shadow-md">
+    <nav class="bg-sage-green p-3 md:p-4 text-warm-beige sticky top-0 z-50 shadow-md">
         <div class="container mx-auto flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3">
-                <img src="./assets/logo.png" alt="HelpingKids Logo" class="h-12 bg-white rounded p-1">
+            
+            <a href="#" class="flex items-center space-x-3 z-50 relative">
+                <img src="./assets/logo.png" alt="HelpingKids Logo" class="h-12 md:h-16">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-3xl font-extrabold leading-none text-warm-beige">HelpingKids</span>
+                    <span class="text-[9px] md:text-xs font-bold tracking-[0.2em] text-warm-beige opacity-80">PIANO LESSONS</span>
+                </div>
             </a>
-            <div class="space-x-6 hidden md:flex font-semibold">
+            
+            <div class="space-x-6 hidden md:flex font-semibold items-center z-50 relative">
                 <a href="#servicios" class="hover:text-dusty-rose transition">Servicios</a>
                 <a href="./nosotros.html" class="hover:text-dusty-rose transition">Nosotros</a>
                 <a href="./contacto.html" class="hover:text-dusty-rose transition">Contacto</a>
+                <button class="bg-dusty-rose text-warm-beige px-4 py-2 rounded-full hover:bg-golden-tan transition text-sm shadow">ES <i class="fas fa-chevron-down ml-1"></i></button>
             </div>
-            <button class="bg-dusty-rose text-warm-beige px-4 py-2 rounded-full hover:bg-golden-tan transition text-sm shadow">ES <i class="fas fa-chevron-down ml-1"></i></button>
+
+            <button id="mobile-menu-btn" class="md:hidden text-warm-beige focus:outline-none z-50 relative p-2">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-sage-green flex flex-col items-center justify-center space-y-8 text-2xl font-bold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+            <a href="#servicios" class="mobile-link hover:text-dusty-rose transition">Servicios</a>
+            <a href="./nosotros.html" class="mobile-link hover:text-dusty-rose transition">Nosotros</a>
+            <a href="./contacto.html" class="mobile-link hover:text-dusty-rose transition">Contacto</a>
+            <button class="bg-dusty-rose text-warm-beige px-6 py-3 rounded-full hover:bg-golden-tan transition shadow mt-4">ES <i class="fas fa-chevron-down ml-1"></i></button>
         </div>
     </nav>
 
@@ -131,5 +148,41 @@
             offset: 100
         });
     </script>
+    <a href="https://wa.me/17861234567" target="_blank" rel="noopener noreferrer" 
+    class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:bg-[#128C7E] transition-all transform hover:-translate-y-2 z-50">
+     <i class="fab fa-whatsapp text-4xl"></i>
+ </a>
+
+ <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = btn.querySelector('i');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+        const isOpen = menu.classList.contains('opacity-100');
+        if (isOpen) {
+            // Cerrar menú
+            menu.classList.remove('opacity-100', 'pointer-events-auto');
+            menu.classList.add('opacity-0', 'pointer-events-none');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        } else {
+            // Abrir menú
+            menu.classList.remove('opacity-0', 'pointer-events-none');
+            menu.classList.add('opacity-100', 'pointer-events-auto');
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times'); // Cambia a una "X"
+        }
+    }
+
+    // Abrir/cerrar al tocar el botón
+    btn.addEventListener('click', toggleMenu);
+
+    // Cerrar menú automáticamente al tocar un enlace
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
+</script>
 </body>
 </html>
