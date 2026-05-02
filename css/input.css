@@ -1,0 +1,10 @@
+/* input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos extra para la nota musical */
+.note-musical {
+  color: #A76D5E; /* Dusty Rose */
+  font-size: 0.8em;
+}

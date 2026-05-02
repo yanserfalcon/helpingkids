@@ -1,169 +1,135 @@
- <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HelpingKids Piano | Inspiring Excellence in Miami</title>
-    <meta name="description" content="Premium piano lessons for kids in Miami. Fun, professional, and personalized at-home music education." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpingKids - Piano Lessons Miami | Clases de Música para Niños</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fdfdfd; }
-        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .bento-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.05); }
-        .bento-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: #3b82f6; }
-        .hero-gradient { background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.4) 100%); }
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'sage-green': '#98A086',
+              'dusty-rose': '#A76D5E',
+              'golden-tan': '#C4A071',
+              'warm-beige': '#DFCCB1',
+              'terracotta-brown': '#846044',
+            },
+            fontFamily: {
+              'varela': ['"Varela Round"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .note-musical { color: #A76D5E; font-size: 0.8em; }
+          .text-overlay { background-color: rgba(132, 96, 68, 0.85); color: #DFCCB1; }
+        }
+        /* Ajuste para que el scroll sea suave al hacer clic en los enlaces */
+        html { scroll-behavior: smooth; }
     </style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="text-slate-900">
+<body class="font-varela text-terracotta-brown bg-warm-beige">
 
-<nav class="fixed w-full z-[100] glass px-6 py-4">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-3">
-       <img src="src/pages/logo.png">
-            <span class="text-xl font-bold tracking-tighter uppercase">
-                Helping<span class="text-blue-600">Kids</span>
-            </span>
-        </div>
-        <div class="flex items-center gap-6">
-            <a href="#contact" class="hidden md:block text-sm font-semibold hover:text-blue-600 transition">Contact</a>
-            <button onclick="toggleLang()" id="langBtn" class="text-xs font-bold border-2 border-slate-200 px-3 py-1 rounded-full hover:border-blue-600 transition">ES</button>
-            <a href="https://wa.me/17864619545" class="bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition">Book Now</a>
-        </div>
-    </div>
-</nav>
-
-<header class="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse" style="animation-duration: 8s" />
-    <div class="absolute inset-0 hero-gradient"></div>
-    
-    <div class="relative z-10 px-6 max-w-4xl">
-        <span class="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-[0.3em] uppercase bg-blue-600/20 text-blue-400 rounded-full border border-blue-400/30 backdrop-blur-md">Premium Music Studio (piano)</span>
-        <h2 id="title" class="text-5xl md:text-8xl text-white mb-8 leading-[1.1]">Inspiring kids, one note <span class="italic font-normal">at a time.</span></h2>
-        <p id="subtitle" class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">Personalized at-home and online piano lessons for the next generation of musicians in South Florida.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold shadow-2xl hover:bg-white hover:text-blue-600 transition-all">Start Free Trial</a>
-            <a href="#services" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">Explore Programs</a>
-        </div>
-    </div>
-</header>
-
-<section class="py-24 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-        <h3 id="whyTitle" class="text-4xl md:text-5xl mb-4 italic">Why parents love us</h3>
-        <p class="text-slate-500">The perfect balance between discipline and fun.</p>
-    </div>
-    
-    <div class="grid md:grid-cols-3 gap-6">
-        <div class="bento-card bg-white p-10 rounded-[2.5rem] md:col-span-2">
-            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-xl">🏠</div>
-            <h4 class="text-2xl font-bold mb-4">At-Home Convenience</h4>
-            <p class="text-slate-500 leading-relaxed">Save time and let your child learn in the comfort of their own environment. We come to you across South Florida.</p>
-        </div>
-        <div class="bento-card bg-blue-600 p-10 rounded-[2.5rem] text-white">
-            <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-xl">🎯</div>
-            <h4 class="text-2xl font-bold mb-4">Custom Path</h4>
-            <p class="text-blue-100/80 leading-relaxed">Every child is different. We adapt our method to their personality.</p>
-        </div>
-        <div class="bento-card bg-slate-900 p-10 rounded-[2.5rem] text-white">
-            <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-xl">⭐</div>
-            <h4 class="text-2xl font-bold mb-4">Top Rated</h4>
-            <p class="text-slate-400 leading-relaxed">Trusted by families in Cutler Bay, Palmetto Bay, and Pinecrest.</p>
-        </div>
-        <div class="bento-card bg-white p-10 rounded-[2.5rem] md:col-span-2">
-            <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-xl">🎨</div>
-            <h4 class="text-2xl font-bold mb-4">Confidence Building</h4>
-            <p class="text-slate-500 leading-relaxed">Music is more than notes; it's about self-esteem. We celebrate every small win to keep them motivated.</p>
-        </div>
-    </div>
-</section>
-
-<section class="py-24 bg-slate-50 px-6">
-    <div class="max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h3 class="text-4xl mb-6 italic">Words from our families</h3>
-                <div class="flex gap-1 text-amber-400 mb-4">★★★★★</div>
-                <p class="text-slate-600 leading-relaxed italic text-lg">"My son's progress in just a few months has been incredible. Tania has a special gift for teaching kids."</p>
-                <p class="mt-6 font-bold text-sm uppercase tracking-widest text-blue-600">— Sarah M., Palmetto Bay</p>
+    <nav class="bg-sage-green p-4 text-warm-beige sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="./assets/logo.png" alt="HelpingKids Logo" class="h-12 bg-white rounded p-1">
+            </a>
+            <div class="space-x-6 hidden md:flex font-semibold">
+                <a href="#servicios" class="hover:text-dusty-rose transition">Servicios</a>
+                <a href="./nosotros.html" class="hover:text-dusty-rose transition">Nosotros</a>
+                <a href="./contacto.html" class="hover:text-dusty-rose transition">Contacto</a>
             </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1594122230689-45899d9e6f69?q=80&w=2070&auto=format&fit=crop" class="rounded-[3rem] shadow-2xl" alt="Child playing piano" />
+            <button class="bg-dusty-rose text-warm-beige px-4 py-2 rounded-full hover:bg-golden-tan transition text-sm shadow">ES <i class="fas fa-chevron-down ml-1"></i></button>
+        </div>
+    </nav>
+
+    <section class="relative h-screen bg-cover bg-center flex items-center" style="background-image: url('./assets/bg-hero.jpg'); background-color: #C4A071;">
+        <div class="absolute inset-0 bg-warm-beige bg-opacity-40"></div>
+        <div class="container mx-auto relative z-10 px-6">
+            <div class="text-center md:text-left md:max-w-2xl text-overlay p-8 md:p-12 rounded-3xl shadow-2xl" data-aos="fade-right">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-warm-beige mb-6 leading-tight">Cultivando el amor por la música</h1>
+                <p class="text-lg md:text-xl text-warm-beige mb-8">Clases de piano personalizadas en Miami, adaptadas al desarrollo único de cada niño para fomentar disciplina, concentración y creatividad.</p>
+                <a href="#servicios" class="inline-block bg-dusty-rose text-warm-beige px-8 py-4 rounded-full text-lg font-bold hover:bg-sage-green transition shadow-lg">Descubre nuestros programas</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact" class="py-24 px-6 max-w-4xl mx-auto">
-    <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-        <div class="p-12 md:p-16">
-            <h3 class="text-4xl text-center mb-4 italic">Join the studio</h3>
-            <p class="text-center text-slate-500 mb-12">Limited spots available for the Spring semester.</p>
+    <section class="py-20 bg-warm-beige" data-aos="fade-up">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <i class="fas fa-music text-4xl text-dusty-rose mb-6"></i>
+            <p class="text-2xl md:text-3xl text-terracotta-brown leading-relaxed">Nuestro trabajo se basa en la <span class="font-bold text-dusty-rose">paciencia, dedicación y empatía</span>. Guiamos a los niños en su desarrollo integral, valorando la disciplina, la creatividad y construyendo confianza en sí mismos.</p>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 bg-sage-green text-warm-beige">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl text-center mb-16 font-bold" data-aos="zoom-in">Nuestros Servicios</h2>
             
-            <form action="https://formspree.io/f/xrerooro" method="POST" class="grid gap-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" name="name" placeholder="Parent Name" required class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 transition" />
-                    <input type="email" name="email" placeholder="Email Address" required class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 transition" />
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-warm-beige text-terracotta-brown p-8 rounded-2xl shadow-xl transform transition hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-dusty-rose text-5xl mb-6"><i class="fas fa-keyboard"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Clases de Piano</h3>
+                    <p>Clases individuales adaptadas al desarrollo motriz fino, mejorando la lectura de partituras y fortaleciendo el ritmo en un ambiente positivo.</p>
                 </div>
-                <textarea name="message" placeholder="How can we help? (Age of child, location...)" required class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 transition h-32"></textarea>
-                <button class="w-full bg-blue-600 text-white py-5 rounded-2xl font-bold shadow-xl shadow-blue-100 hover:bg-slate-900 transition-all duration-500">Send Inquiry</button>
-            </form>
-        </div>
-    </div>
-</section>
 
-<a href="https://wa.me/17864619545" target="_blank" class="fixed bottom-8 right-8 z-[110] bg-green-500 text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-</a>
+                <div class="bg-warm-beige text-terracotta-brown p-8 rounded-2xl shadow-xl transform transition hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-dusty-rose text-5xl mb-6"><i class="fas fa-school"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Música en Escuelas</h3>
+                    <p>Actividades en daycares y escuelas donde los niños exploran instrumentos, cantan y desarrollan memoria y trabajo en equipo.</p>
+                </div>
 
-<footer class="bg-slate-900 text-white pt-24 pb-12 px-6">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/10 pb-16 mb-12 text-center md:text-left">
-        <div>
-            <h4 class="text-xl font-bold mb-6 italic">HelpingKids</h4>
-            <p class="text-slate-400 text-sm leading-relaxed">Inspiring kids, one note at a time. Professional and fun piano education in Miami.</p>
-        </div>
-        <div>
-            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-500 mb-6">Contact</h4>
-            <p class="text-slate-400 text-sm">10100 Nicaragua Dr, Cutler Bay, FL</p>
-            <p class="text-slate-400 text-sm">+1 786-461-9545</p>
-        </div>
-        <div>
-            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-500 mb-6">Follow Us</h4>
-            <div class="flex justify-center md:justify-start gap-4">
-                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition">IG</a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition">FB</a>
+                <div class="bg-warm-beige text-terracotta-brown p-8 rounded-2xl shadow-xl transform transition hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-dusty-rose text-5xl mb-6"><i class="fas fa-hands-holding-child"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Necesidades Especiales</h3>
+                    <p>Programas valiosos que permiten mejorar la comunicación, expresar emociones y dar un sentido de pertenencia y logro.</p>
+                </div>
+
             </div>
         </div>
-    </div>
-    <p class="text-center text-slate-500 text-[10px] uppercase tracking-widest">© 2026 HelpingKids Piano Studio - All Rights Reserved.</p>
-</footer>
+    </section>
 
-<script>
-let lang = 'en';
-const texts = {
-    es: {
-        title: 'Inspirando a los niños, una nota <span class="italic font-normal">a la vez.</span>',
-        subtitle: 'Clases de piano personalizadas en casa y online para la próxima generación de músicos en el sur de Florida.',
-        whyTitle: 'Por qué los padres nos aman'
-    },
-    en: {
-        title: 'Inspiring kids, one note <span class="italic font-normal">at a time.</span>',
-        subtitle: 'Personalized at-home and online piano lessons for the next generation of musicians in South Florida.',
-        whyTitle: 'Why parents love us'
-    }
-};
+    <section class="py-16 bg-dusty-rose text-warm-beige text-center" data-aos="fade-in">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-4"><i class="fas fa-graduation-cap mr-2"></i> Orgullosos proveedores de StepUp</h3>
+            <p class="text-xl">Aceptamos becas StepUp para hacer que la educación musical sea accesible para más familias.</p>
+        </div>
+    </section>
 
-function toggleLang(){
-    lang = lang === 'en' ? 'es' : 'en';
-    document.getElementById('langBtn').innerText = lang === 'en' ? 'ES' : 'EN';
-    document.getElementById('title').innerHTML = texts[lang].title;
-    document.getElementById('subtitle').innerText = texts[lang].subtitle;
-    document.getElementById('whyTitle').innerText = texts[lang].whyTitle;
-}
-</script>
+    <footer class="bg-terracotta-brown py-12 text-warm-beige text-center">
+        <div class="container mx-auto px-6">
+            <img src="./assets/logo.png" alt="HelpingKids Logo" class="h-16 mx-auto mb-6 bg-white rounded p-2 opacity-90">
+            <p class="mb-2 text-lg"><i class="fas fa-map-pin text-golden-tan mr-2"></i> 4704 SW 136th Place, Miami, FL 33175</p>
+            <p class="mb-6"><i class="fas fa-envelope text-golden-tan mr-2"></i> contacto@helpingkids.com</p>
+            <div class="flex justify-center space-x-6 mb-8 text-2xl">
+                <a href="#" class="hover:text-golden-tan transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-golden-tan transition"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p class="text-sm opacity-75">&copy; 2026 HelpingKids - Piano Lessons. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, 
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
