@@ -141,31 +141,48 @@
 </a>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ duration: 800, once: true, offset: 100 });
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        // 1. Cargamos el navbar (usamos '../' porque estamos dentro de la carpeta /en/)
+        fetch('../js/navbar.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Error al buscar el archivo navbar');
+                return response.text();
+            })
+            .then(data => {
+                // 2. Inyectamos el HTML del menú en la página
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // 3. SOLO AHORA que el menú existe, inicializamos los botones
+                initMobileMenu();
+            })
+            .catch(error => console.error('Fallo en Navbar:', error));
 
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const icon = btn.querySelector('i');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
 
-    function toggleMenu() {
-        const isOpen = menu.classList.contains('opacity-100');
-        if (isOpen) {
-            menu.classList.remove('opacity-100', 'pointer-events-auto');
-            menu.classList.add('opacity-0', 'pointer-events-none');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        } else {
-            menu.classList.remove('opacity-0', 'pointer-events-none');
-            menu.classList.add('opacity-100', 'pointer-events-auto');
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
+            // ESCUDO PROTECTOR: Solo ejecuta el código si encontró el botón
+            if (btn && menu) {
+                const icon = btn.querySelector('i');
+                const mobileLinks = document.querySelectorAll('.mobile-link');
+
+                const toggleMenu = () => {
+                    const isOpen = menu.classList.contains('opacity-100');
+                    menu.classList.toggle('opacity-100', !isOpen);
+                    menu.classList.toggle('pointer-events-auto', !isOpen);
+                    if(icon) {
+                        icon.classList.toggle('fa-bars', isOpen);
+                        icon.classList.toggle('fa-times', !isOpen);
+                    }
+                };
+                
+                btn.addEventListener('click', toggleMenu);
+                mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+            } else {
+                console.log('El botón del menú móvil aún no está listo o no se encontró.');
+            }
         }
-    }
-
-    btn.addEventListener('click', toggleMenu);
-    mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-</script>
+    </script>
 </body>
 </html>
