@@ -144,14 +144,16 @@
         AOS.init({ duration: 800, once: true, offset: 100 });
         
         // Carga de la Navbar Externa (Solo funcionará en Cloudflare/Servidor)
-        fetch('/js/navbar.html')
-            .then(response => response.text())
+        fetch('./js/navbar.html') // Usa '../js/navbar.html' si estás en la carpeta /en/
+            .then(response => {
+                if (!response.ok) throw new Error('No se encontró el archivo navbar.html en la ruta: ' + response.url);
+                return response.text();
+            })
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
                 initMobileMenu();
             })
-            .catch(error => console.log('El navbar cargará cuando lo subas a Cloudflare.'));
-
+             .catch(error => console.error('ERROR CRÍTICO:', error.message));
         function initMobileMenu() {
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');

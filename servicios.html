@@ -117,29 +117,36 @@
     <script>
         AOS.init({ duration: 800, once: true, offset: 100 });
         
-        // Script para el menú móvil
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const icon = btn.querySelector('i');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        // Carga dinámica del Navbar
+        fetch('/js/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                initMobileMenu();
+            })
+            .catch(error => console.log('Error cargando el menú. ¿Estás en un servidor local?'));
 
-        function toggleMenu() {
-            const isOpen = menu.classList.contains('opacity-100');
-            if (isOpen) {
-                menu.classList.remove('opacity-100', 'pointer-events-auto');
-                menu.classList.add('opacity-0', 'pointer-events-none');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                menu.classList.remove('opacity-0', 'pointer-events-none');
-                menu.classList.add('opacity-100', 'pointer-events-auto');
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('i');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if(btn && menu) {
+                const toggleMenu = () => {
+                    const isOpen = menu.classList.contains('opacity-100');
+                    menu.classList.toggle('opacity-100', !isOpen);
+                    menu.classList.toggle('pointer-events-auto', !isOpen);
+                    if(icon) {
+                        icon.classList.toggle('fa-bars', isOpen);
+                        icon.classList.toggle('fa-times', !isOpen);
+                    }
+                };
+                
+                btn.onclick = toggleMenu;
+                mobileLinks.forEach(link => link.onclick = toggleMenu);
             }
         }
-
-        btn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
     </script>
 </body>
 </html>
