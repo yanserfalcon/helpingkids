@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | HelpingKids - Piano Lessons Miami</title>
+    
+    <script src="../js/language.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'sage-green': '#98A086',
+              'dusty-rose': '#A76D5E',
+              'golden-tan': '#C4A071',
+              'warm-beige': '#DFCCB1',
+              'terracotta-brown': '#846044',
+              'dark-earth': '#5C4435',
+            },
+            fontFamily: {
+              'varela': ['"Varela Round"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .glass-card { background: rgba(252, 250, 247, 0.8); backdrop-filter: blur(10px); }
+          .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+          .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 1rem; }
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-varela text-dark-earth bg-warm-beige">
+
+    <nav style="background-color: #FCFAF7;" class="p-3 md:p-4 text-dark-earth sticky top-0 z-50 shadow-md border-b border-[#ece6dc]">
+        <div class="container mx-auto flex items-center justify-between">
+            
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="../assets/logo4.png" alt="HelpingKids Logo" class="h-12 md:h-14 transition-transform duration-300 hover:scale-105">
+                <div class="flex flex-col leading-tight">
+                    <span class="text-xl md:text-2xl font-bold text-dark-earth">HelpingKids</span>
+                    <span class="text-[10px] md:text-xs tracking-[0.25em] text-sage-green font-semibold">
+                        PIANO LESSONS
+                    </span>
+                </div>
+            </a>
+            
+            <div class="space-x-8 hidden md:flex font-medium items-center text-[15px]">
+                <a href="servicios.html" class="hover:text-dusty-rose transition font-bold text-dusty-rose">Services</a>
+                <a href="nosotros.html" class="hover:text-dusty-rose transition">About Us</a>
+                <a href="contacto.html" class="hover:text-dusty-rose transition">Contact</a>
+
+                <a href="contacto.html" class="bg-dusty-rose text-white px-5 py-2 rounded-full hover:bg-sage-green transition shadow">
+                    Enroll Now
+                </a>
+
+                <button onclick="switchLanguage('es')" class="flex items-center gap-1 text-sm font-bold hover:text-dusty-rose transition">
+                    ES <i class="fas fa-globe text-xs"></i>
+                </button>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#FCFAF7] flex flex-col items-center justify-center space-y-8 text-2xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+            <a href="servicios.html" class="mobile-link text-dusty-rose">Services</a>
+            <a href="nosotros.html" class="mobile-link hover:text-dusty-rose transition">About Us</a>
+            <a href="contacto.html" class="mobile-link hover:text-dusty-rose transition">Contact</a>
+
+            <a href="contacto.html" class="bg-dusty-rose text-white px-6 py-3 rounded-full hover:bg-sage-green transition shadow mt-4">
+                Enroll Now
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative py-20 bg-sage-green text-warm-beige overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4" data-aos="zoom-out">Our Programs</h1>
+            <p class="text-xl max-w-2xl mx-auto opacity-90">Holistic music education built on patience, empathy, and developing each child's unique potential.</p>
+        </div>
+        <div class="absolute -top-10 -left-10 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="../assets/clase-individual.jpg" alt="Individual piano lesson" class="w-full h-[400px] object-cover">
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <span class="text-dusty-rose font-bold tracking-widest uppercase text-sm">Flagship Program</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6">Individual Piano Lessons</h2>
+                    <p class="text-lg mb-6 leading-relaxed">Our piano lessons are one-on-one and meticulously tailored to each child's development. Our primary goal is to develop fine motor coordination, improve sheet music reading, strengthen rhythm, and, above all, foster a lifelong love for music.</p>
+                    
+                    <div class="bg-white p-6 rounded-2xl border-l-4 border-dusty-rose shadow-md mb-6">
+                        <h4 class="font-bold text-dusty-rose mb-2"><i class="fas fa-heart mr-2"></i> Inclusive Approach</h4>
+                        <p class="text-sm italic text-dark-earth">Individual lessons are especially valuable for children with special needs. They help improve communication, express emotions, and develop focus and coordination, providing a deep sense of belonging and achievement within a positive and creative environment.</p>
+                    </div>
+
+                    <ul class="grid grid-cols-2 gap-4 text-sm font-semibold text-terracotta-brown">
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Discipline Development</li>
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Increased Focus</li>
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Creativity Boost</li>
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Self-Confidence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#FCFAF7]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="../assets/clase-grupal.jpg" alt="Music in schools" class="w-full h-[400px] object-cover">
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <span class="text-dusty-rose font-bold tracking-widest uppercase text-sm">Community and Rhythm</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6">Music in Schools and Daycares</h2>
+                    <p class="text-lg mb-6 leading-relaxed">We bring the joy of music directly to local daycares and schools. In our engaging group sessions, children explore a wide variety of instruments, sing, create rhythms, and learn basic music reading in a collaborative way.</p>
+                    <p class="text-lg mb-6 leading-relaxed">These group activities not only introduce them to the world of music but are essential for developing group coordination, memory, and <strong class="text-dusty-rose">teamwork</strong> skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-dark-earth text-warm-beige">
+        <div class="container mx-auto px-6 text-center max-w-4xl" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-dusty-rose">The Values Behind Our Work</h2>
+            <p class="text-xl mb-12 leading-relaxed">Our methodology is deeply rooted in <strong class="text-white">patience, dedication, and empathy</strong>, as we know we are guiding children through their holistic development. We highly value discipline, creativity, and the building of self-confidence.</p>
+            <div class="inline-block border-2 border-sage-green p-6 rounded-2xl">
+                <p class="text-2xl font-bold text-sage-green">"It's work that leaves a lasting impression on their growth."</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-terracotta-brown py-12 text-warm-beige text-center">
+        <div class="container mx-auto px-6">
+            <p class="mb-2 text-lg"><i class="fas fa-map-pin text-golden-tan mr-2"></i> 4704 SW 136th Place, Miami, FL 33175</p>
+            <p class="mb-6"><i class="fas fa-envelope text-golden-tan mr-2"></i> taniagarcia.151972@gmail.com</p>
+            <p class="text-sm opacity-75">&copy; 2026 HelpingKids. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/+17863176384" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:bg-[#128C7E] transition-all transform hover:-translate-y-2 z-50">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        // Mobile menu script
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = menu.classList.contains('opacity-100');
+            if (isOpen) {
+                menu.classList.remove('opacity-100', 'pointer-events-auto');
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                menu.classList.add('opacity-100', 'pointer-events-auto');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+    </script>
+</body>
+</html>
