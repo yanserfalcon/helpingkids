@@ -117,15 +117,36 @@
     <script>
         AOS.init({ duration: 800, once: true, offset: 100 });
         
-        // Carga dinámica del Navbar
-        fetch('/js/navbar.html')
-            .then(response => response.text())
+       // 1. Cargamos el navbar (con '../' porque estamos en la carpeta /en/)
+       fetch('../js/navbar.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Error al buscar el archivo navbar');
+                return response.text();
+            })
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                // --- TRUCO DE TRADUCCIÓN PARA EL NAVBAR COMPARTIDO ---
+                // Buscamos los botones de idioma y los cambiamos a "ES"
+                const langBtns = document.querySelectorAll('[onclick="switchLanguage(\'en\')"]');
+                langBtns.forEach(btn => {
+                    // Cambiar la función para que ahora vaya a español
+                    btn.setAttribute('onclick', "switchLanguage('es')");
+                    
+                    // Si es el botón del menú móvil (el que tiene la clase mt-8)
+                    if (btn.classList.contains('mt-8')) {
+                        btn.innerHTML = '<i class="fas fa-globe"></i> Switch to Spanish (ES)';
+                        btn.classList.replace('text-sage-green', 'text-dusty-rose'); // Le cambiamos el color
+                    } else {
+                        // Si es el botón pequeño de la computadora
+                        btn.innerHTML = 'ES <i class="fas fa-globe text-xs"></i>';
+                    }
+                });
+                
+                // Inicializamos el menú después de hacer los cambios
                 initMobileMenu();
             })
-            .catch(error => console.log('Error cargando el menú. ¿Estás en un servidor local?'));
-
+            .catch(error => console.error('Fallo en Navbar:', error));
         function initMobileMenu() {
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
