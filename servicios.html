@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | HelpingKids - Piano Lessons Miami</title>
+    
+    <script src="./js/language.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'sage-green': '#98A086',
+              'dusty-rose': '#A76D5E',
+              'golden-tan': '#C4A071',
+              'warm-beige': '#DFCCB1',
+              'terracotta-brown': '#846044',
+              'dark-earth': '#5C4435',
+            },
+            fontFamily: {
+              'varela': ['"Varela Round"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .glass-card { background: rgba(252, 250, 247, 0.8); backdrop-filter: blur(10px); }
+          .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+          .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 1rem; }
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-varela text-dark-earth bg-warm-beige">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="relative py-20 bg-sage-green text-warm-beige overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4" data-aos="zoom-out">Nuestros Programas</h1>
+            <p class="text-xl max-w-2xl mx-auto opacity-90">Educación musical integral basada en la paciencia, la empatía y el desarrollo del potencial único de cada niño.</p>
+        </div>
+        <div class="absolute -top-10 -left-10 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="./assets/clase-individual.jpg" alt="Clase de piano individual" class="w-full h-[400px] object-cover">
+                        </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <span class="text-dusty-rose font-bold tracking-widest uppercase text-sm">Programa Estrella</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6">Clases de Piano Individuales</h2>
+                    <p class="text-lg mb-6 leading-relaxed">Nuestras clases de piano personalizadas son el corazón de HelpingKids. Entendemos que cada niño tiene un ritmo de aprendizaje distinto, por lo que adaptamos nuestra metodología para fortalecer la coordinación motriz fina y la lectura de partituras de forma lúdica.</p>
+                    
+                    <div class="bg-white/50 p-6 rounded-2xl border-l-4 border-dusty-rose shadow-sm mb-6">
+                        <h4 class="font-bold text-dusty-rose mb-2"><i class="fas fa-heart mr-2"></i> Enfoque Inclusivo</h4>
+                        <p class="text-sm italic">Especialmente valiosas para niños con necesidades especiales, estas clases permiten mejorar la comunicación, expresar emociones y desarrollar la atención en un ambiente de total pertenencia y logro.</p>
+                    </div>
+
+                    <ul class="grid grid-cols-2 gap-4 text-sm font-semibold text-terracotta-brown">
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Disciplina y Foco</li>
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Coordinación Fina</li>
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Lectura Musical</li>
+                        <li><i class="fas fa-check text-sage-green mr-2"></i> Autoestima</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-sage-green/10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="./assets/clase-grupal.jpg" alt="Música en escuelas" class="w-full h-[400px] object-cover">
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <span class="text-dusty-rose font-bold tracking-widest uppercase text-sm">Comunidad y Ritmo</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6">Música en Escuelas y Daycares</h2>
+                    <p class="text-lg mb-6 leading-relaxed">Llevamos la alegría de la música directamente a las instituciones educativas de Miami. En nuestras sesiones grupales, los niños exploran un mundo de sonidos a través de diversos instrumentos y actividades rítmicas.</p>
+                    <p class="text-lg mb-6 leading-relaxed">Fomentamos el **trabajo en equipo** y la memoria colectiva, creando un espacio donde cantar y aprender partituras básicas se convierte en una experiencia social inolvidable.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-dusty-rose text-white p-3 rounded-lg"><i class="fas fa-users"></i></div>
+                            <div>
+                                <h5 class="font-bold">Socialización</h5>
+                                <p class="text-xs">Desarrollo de habilidades sociales a través del canto coral.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-dusty-rose text-white p-3 rounded-lg"><i class="fas fa-brain"></i></div>
+                            <div>
+                                <h5 class="font-bold">Memoria Musical</h5>
+                                <p class="text-xs">Ejercicios rítmicos que potencian la retención cognitiva.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-dark-earth text-warm-beige">
+        <div class="container mx-auto px-6 text-center max-w-4xl" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-dusty-rose">Nuestra Filosofía de Trabajo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6">
+                    <i class="fas fa-hand-holding-heart text-4xl mb-4 text-sage-green"></i>
+                    <h4 class="text-xl font-bold mb-2">Empatía</h4>
+                    <p class="text-sm opacity-80">Guiamos a cada niño entendiendo sus emociones y procesos internos.</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-hourglass-half text-4xl mb-4 text-sage-green"></i>
+                    <h4 class="text-xl font-bold mb-2">Paciencia</h4>
+                    <p class="text-sm opacity-80">Creemos en el tiempo de cada estudiante para florecer musicalmente.</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-shield-heart text-4xl mb-4 text-sage-green"></i>
+                    <h4 class="text-xl font-bold mb-2">Confianza</h4>
+                    <p class="text-sm opacity-80">Construimos la seguridad necesaria para que expresen su creatividad sin miedo.</p>
+                </div>
+            </div>
+            <p class="mt-12 text-xl italic opacity-90">"Es un trabajo que deja huella en su crecimiento."</p>
+        </div>
+    </section>
+
+    <footer class="bg-terracotta-brown py-12 text-warm-beige text-center">
+        <div class="container mx-auto px-6">
+            <p class="mb-2 text-lg"><i class="fas fa-map-pin text-golden-tan mr-2"></i> 4704 SW 136th Place, Miami, FL 33175</p>
+            <p class="mb-6"><i class="fas fa-envelope text-golden-tan mr-2"></i> taniagarcia.151972@gmail.com</p>
+            <p class="text-sm opacity-75">&copy; 2026 HelpingKids. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // CARGA DINÁMICA DEL NAVBAR
+        fetch('./js/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // Re-inicializar el menú móvil después de cargar el HTML
+                initMobileMenu();
+            });
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.onclick = () => {
+                    const isOpen = menu.classList.contains('opacity-100');
+                    menu.classList.toggle('opacity-100', !isOpen);
+                    menu.classList.toggle('pointer-events-auto', !isOpen);
+                };
+            }
+        }
+    </script>
+</body>
+</html>

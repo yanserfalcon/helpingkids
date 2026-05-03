@@ -55,54 +55,8 @@
 <body class="font-varela text-terracotta-brown bg-warm-beige">
 
 <!-- NAVBAR -->
-<nav style="background-color: #FCFAF7;" class="p-3 md:p-4 text-dark-earth sticky top-0 z-50 shadow-md border-b border-[#ece6dc]">
-    <div class="container mx-auto flex items-center justify-between">
-        
-        <!-- LOGO -->
-        <a href="#" class="flex items-center space-x-3">
-            <img src="./assets/logo4.png" alt="HelpingKids Logo" class="h-12 md:h-14 transition-transform duration-300 hover:scale-105">
-            <div class="flex flex-col leading-tight">
-                <span class="text-xl md:text-2xl font-bold text-dark-earth">HelpingKids</span>
-                <span class="text-[10px] md:text-xs tracking-[0.25em] text-sage-green font-semibold">
-                    PIANO LESSONS
-                </span>
-            </div>
-        </a>
-        
-        <!-- MENU DESKTOP -->
-        <div class="space-x-8 hidden md:flex font-medium items-center text-[15px]">
-            <a href="#servicios" class="hover:text-dusty-rose transition">Servicios</a>
-            <a href="./nosotros.html" class="hover:text-dusty-rose transition">Nosotros</a>
-            <a href="./contacto.html" class="hover:text-dusty-rose transition">Contacto</a>
+<div id="navbar-placeholder"></div>
 
-            <!-- CTA -->
-            <a href="#contacto" class="bg-dusty-rose text-white px-5 py-2 rounded-full hover:bg-deep-sage transition shadow">
-                Inscribirse
-            </a>
-
-            <!-- LANG -->
-            <button onclick="switchLanguage('en')" class="flex items-center gap-1 text-sm font-bold hover:text-dusty-rose transition">
-                EN <i class="fas fa-globe text-xs"></i>
-            </button>
-        </div>
-
-        <!-- MOBILE BUTTON -->
-        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2">
-            <i class="fas fa-bars text-3xl"></i>
-        </button>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="fixed inset-0 bg-[#FCFAF7] flex flex-col items-center justify-center space-y-8 text-2xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
-        <a href="#servicios" class="mobile-link hover:text-dusty-rose transition">Servicios</a>
-        <a href="./nosotros.html" class="mobile-link hover:text-dusty-rose transition">Nosotros</a>
-        <a href="./contacto.html" class="mobile-link hover:text-dusty-rose transition">Contacto</a>
-
-        <a href="#contacto" class="bg-dusty-rose text-white px-6 py-3 rounded-full hover:bg-deep-sage transition shadow mt-4">
-            Inscribirse
-        </a>
-    </div>
-</nav>
 
 <!-- HERO -->
 <section class="relative h-screen bg-cover bg-center flex items-center" style="background-image: url('./assets/bg-hero.jpg'); background-color: #C4A071;">
@@ -231,5 +185,29 @@
        class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:bg-[#128C7E] transition-all transform hover:-translate-y-2 z-50">
         <i class="fab fa-whatsapp text-4xl"></i>
     </a>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // CARGA DINÁMICA DEL NAVBAR
+        fetch('./js/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // Re-inicializar el menú móvil después de cargar el HTML
+                initMobileMenu();
+            });
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.onclick = () => {
+                    const isOpen = menu.classList.contains('opacity-100');
+                    menu.classList.toggle('opacity-100', !isOpen);
+                    menu.classList.toggle('pointer-events-auto', !isOpen);
+                };
+            }
+        }
+    </script>
 </body>
 </html>
