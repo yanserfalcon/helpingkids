@@ -25,7 +25,7 @@
             </button>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2">
+        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2 z-50 relative">
             <i class="fas fa-bars text-3xl"></i>
         </button>
     </div>
@@ -38,5 +38,9 @@
         <a href="contacto.html" class="bg-dusty-rose text-white px-6 py-3 rounded-full hover:bg-deep-sage transition shadow mt-4">
             Inscribirse
         </a>
+
+        <button onclick="switchLanguage('en')" class="flex items-center gap-2 text-xl font-bold text-sage-green hover:text-dusty-rose transition mt-8">
+            <i class="fas fa-globe"></i> Cambiar a Inglés (EN)
+        </button>
     </div>
 </nav>
