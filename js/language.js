@@ -33,20 +33,28 @@
 })();
 
 // Función que se ejecutará cuando el usuario haga clic en el botón del menú
+
+// Función que se ejecutará cuando el usuario haga clic en el botón del menú
 function switchLanguage(targetLang) {
     localStorage.setItem('app_lang', targetLang);
     
-    // Si estamos en la PC, solo mostramos una alerta para que sepas que funciona el botón
+    // Si estamos en la PC, cancelamos la redirección silenciosamente
     if (window.location.protocol === 'file:') {
-        alert("En el servidor, esto te llevaría a la versión en " + targetLang);
+        console.log("Cambio de idioma simulado a: " + targetLang);
         return;
     }
 
-    const currentPath = window.location.pathname;
+    let currentPath = window.location.pathname;
     
     if (targetLang === 'en') {
-        window.location.href = '/en' + currentPath;
+        // Solo agregar /en si NO estamos ya dentro de la carpeta de inglés
+        if (!currentPath.startsWith('/en')) {
+            // Si la ruta es la raíz "/", la limpiamos para no tener "/en//"
+            let cleanPath = currentPath === '/' ? '' : currentPath;
+            window.location.href = '/en' + cleanPath;
+        }
     } else {
+        // Quitar /en de la ruta para volver a español
         const newPath = currentPath.replace(/^\/en/, '') || '/';
         window.location.href = newPath;
     }
