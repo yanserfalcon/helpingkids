@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | HelpingKids - Piano Lessons Miami</title>
+    
+    <script src="../js/language.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'sage-green': '#98A086',
+              'dusty-rose': '#A76D5E',
+              'golden-tan': '#C4A071',
+              'warm-beige': '#DFCCB1',
+              'terracotta-brown': '#846044',
+            },
+            fontFamily: { 'varela': ['"Varela Round"', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-varela text-dark-earth bg-[#FCFAF7]">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="relative py-20 bg-warm-beige overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-terracotta-brown" data-aos="zoom-out">Let's Talk!</h1>
+            <p class="text-xl max-w-2xl mx-auto text-[#4A3B32]">We are ready to start this musical adventure. Write to us and we will get back to you as soon as possible.</p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <div class="w-full lg:w-5/12 space-y-8" data-aos="fade-right">
+                    <div class="bg-white/70 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/50">
+                        <h3 class="text-2xl font-bold mb-6 text-dusty-rose">Contact Information</h3>
+                        <div class="space-y-6 text-[#4A3B32]">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-warm-beige p-3 rounded-full"><i class="fas fa-map-marker-alt w-6 text-center"></i></div>
+                                <div><p class="font-bold">Location</p><p class="text-sm">4704 SW 136th Place, Miami, FL 33175</p></div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-warm-beige p-3 rounded-full"><i class="fas fa-phone w-6 text-center"></i></div>
+                                <div><p class="font-bold">Phone / WhatsApp</p><p class="text-sm">+1 (786) 317-6384</p></div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-warm-beige p-3 rounded-full"><i class="fas fa-envelope w-6 text-center"></i></div>
+                                <div><p class="font-bold">Email</p><p class="text-sm break-all">taniagarcia.151972@gmail.com</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl overflow-hidden shadow-xl h-64 border-4 border-white">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.667232231267!2d-80.4162446!3d25.7154941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9959665f8074d%3A0xe54625b508f7f525!2s4704%20SW%20136th%20Pl%2C%20Miami%2C%20FL%2033175!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-7/12" data-aos="fade-left">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+                        <h2 class="text-3xl font-bold mb-2">Send us a message</h2>
+                        <p class="text-sm text-gray-500 mb-8">Fill out the form and we will contact you shortly.</p>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">Parent's Name *</label>
+                                    <input type="text" class="w-full px-4 py-3 rounded-xl border bg-[#FCFAF7]" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">Phone *</label>
+                                    <input type="tel" class="w-full px-4 py-3 rounded-xl border bg-[#FCFAF7]" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2">Email *</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-xl border bg-[#FCFAF7]" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2">How can we help? (Child's age, interests...) *</label>
+                                <textarea rows="4" class="w-full px-4 py-3 rounded-xl border bg-[#FCFAF7] resize-none" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-dusty-rose text-white font-bold text-lg py-4 rounded-xl shadow-md">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-terracotta-brown py-12 text-warm-beige text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-sm opacity-75">&copy; 2026 HelpingKids. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        fetch('../js/navbar-en.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                initMobileMenu();
+            });
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.onclick = () => {
+                    const isOpen = menu.classList.contains('opacity-100');
+                    menu.classList.toggle('opacity-100', !isOpen);
+                    menu.classList.toggle('pointer-events-auto', !isOpen);
+                };
+            }
+        }
+    </script>
+</body>
+</html>
