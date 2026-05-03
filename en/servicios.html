@@ -122,19 +122,13 @@
     <script>
         AOS.init({ duration: 800, once: true, offset: 100 });
         
-        // 1. Cargamos el navbar (usamos '../' porque estamos dentro de la carpeta /en/)
-       // 1. Cargamos el navbar (con '../' porque estamos en la carpeta /en/)
-       // Carga del Navbar en INGLÉS
-       fetch('../js/navbar-en.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Error al buscar el navbar');
-                return response.text();
-            })
+       // Ejemplo para index.html (Español)
+        fetch('../js/navbar-en.html')
+            .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
-                initMobileMenu();
-            })
-            .catch(error => console.error('Fallo en Navbar:', error));
+                initMobileMenu(); // Esto activa el menú hamburguesa
+            });
             
         function initMobileMenu() {
             const btn = document.getElementById('mobile-menu-btn');

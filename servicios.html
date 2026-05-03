@@ -117,20 +117,14 @@
     <script>
         AOS.init({ duration: 800, once: true, offset: 100 });
         
-       // 1. Cargamos el navbar (con '../' porque estamos en la carpeta /en/)
-      // Carga dinámica del Navbar en ESPAÑOL
-      fetch('./js/navbar.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Error al buscar el archivo navbar');
-                return response.text();
-            })
+ 
+        fetch('./js/navbar.html')
+            .then(response => response.text())
             .then(data => {
-                // Inyectamos el HTML tal cual viene del archivo, sin alterarlo
                 document.getElementById('navbar-placeholder').innerHTML = data;
-                initMobileMenu();
-            })
-            .catch(error => console.error('Fallo en Navbar:', error));
-            
+                initMobileMenu(); // Esto activa el menú hamburguesa
+            });
+                    
         function initMobileMenu() {
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
