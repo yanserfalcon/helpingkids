@@ -6,6 +6,7 @@
     <title>HelpingKids - Piano Lessons Miami | Music Classes for Kids</title>
     
     <script src="../js/language.js"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -45,17 +46,56 @@
     </style>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="font-varela text-terracotta-brown bg-warm-beige">
 
-    <div id="navbar-placeholder"></div>
+<nav style="background-color: #FCFAF7;" class="p-3 md:p-4 text-dark-earth sticky top-0 z-50 shadow-md border-b border-[#ece6dc]">
+    <div class="container mx-auto flex items-center justify-between">
+        
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="../assets/logo4.png" alt="HelpingKids Logo" class="h-12 md:h-14 transition-transform duration-300 hover:scale-105">
+            <div class="flex flex-col leading-tight">
+                <span class="text-xl md:text-2xl font-bold text-dark-earth">HelpingKids</span>
+                <span class="text-[10px] md:text-xs tracking-[0.25em] text-sage-green font-semibold">
+                    PIANO LESSONS
+                </span>
+            </div>
+        </a>
+        
+        <div class="space-x-8 hidden md:flex font-medium items-center text-[15px]">
+            <a href="servicios.html" class="hover:text-dusty-rose transition">Services</a>
+            <a href="nosotros.html" class="hover:text-dusty-rose transition">About Us</a>
+            <a href="contacto.html" class="hover:text-dusty-rose transition">Contact</a>
+
+            <a href="contacto.html" class="bg-dusty-rose text-white px-5 py-2 rounded-full hover:bg-deep-sage transition shadow">
+                Enroll Now
+            </a>
+
+            <button onclick="switchLanguage('es')" class="flex items-center gap-1 text-sm font-bold hover:text-dusty-rose transition">
+                ES <i class="fas fa-globe text-xs"></i>
+            </button>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2">
+            <i class="fas fa-bars text-3xl"></i>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-[#FCFAF7] flex flex-col items-center justify-center space-y-8 text-2xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        <a href="servicios.html" class="mobile-link hover:text-dusty-rose transition">Services</a>
+        <a href="nosotros.html" class="mobile-link hover:text-dusty-rose transition">About Us</a>
+        <a href="contacto.html" class="mobile-link hover:text-dusty-rose transition">Contact</a>
+
+        <a href="contacto.html" class="bg-dusty-rose text-white px-6 py-3 rounded-full hover:bg-deep-sage transition shadow mt-4">
+            Enroll Now
+        </a>
+    </div>
+</nav>
 
 
 <section class="relative h-screen bg-cover bg-center flex items-center" style="background-image: url('../assets/bg-hero.jpg'); background-color: #C4A071;">
@@ -64,7 +104,7 @@
         <div class="text-center md:text-left md:max-w-2xl text-overlay p-8 md:p-12 rounded-3xl shadow-2xl" data-aos="fade-right">
             <h1 class="text-4xl md:text-6xl font-extrabold text-warm-beige mb-6 leading-tight">Cultivating a love for music</h1>
             <p class="text-lg md:text-xl text-warm-beige mb-8">Personalized piano lessons in Miami, tailored to each child's unique development to foster discipline, focus, and creativity.</p>
-            <a href="#services" class="inline-block bg-dusty-rose text-warm-beige px-8 py-4 rounded-full text-lg font-bold hover:bg-deep-sage transition shadow-lg">Discover our programs</a>
+            <a href="servicios.html" class="inline-block bg-dusty-rose text-warm-beige px-8 py-4 rounded-full text-lg font-bold hover:bg-deep-sage transition shadow-lg">Discover our programs</a>
         </div>
     </div>
 </section>
@@ -72,49 +112,43 @@
 <section class="py-20 bg-warm-beige" data-aos="fade-up">
     <div class="container mx-auto px-6 text-center max-w-4xl">
         <i class="fas fa-music text-4xl text-dusty-rose mb-6"></i>
-        <p class="text-2xl md:text-3xl text-terracotta-brown leading-relaxed">Our work is based on <span class="font-bold text-dusty-rose">patience, dedication, and empathy</span>. We guide children in their holistic development, valuing discipline, creativity, and building their self-confidence.</p>
+        <p class="text-2xl md:text-3xl text-terracotta-brown leading-relaxed">Our work is based on <span class="font-bold text-dusty-rose">patience, dedication, and empathy</span>. We guide children in their holistic development, valuing discipline, creativity, and building self-confidence.</p>
     </div>
 </section>
 
 <section id="services" class="relative py-24 bg-fixed bg-center bg-cover" style="background-image: url('../assets/piano-bg.jpg'); background-color: #98A086;">
-    
     <div class="absolute inset-0 bg-sage-green opacity-85"></div>
-    
     <div class="container mx-auto px-6 relative z-10">
         <h2 class="text-4xl md:text-5xl text-center mb-16 font-bold text-terracotta-brown" data-aos="zoom-in">Our Services</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
             <div class="bg-warm-beige text-terracotta-brown p-8 rounded-2xl shadow-2xl transform transition hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
                 <div class="text-dusty-rose text-5xl mb-6"><i class="fas fa-keyboard"></i></div>
                 <h3 class="text-2xl font-bold mb-4">Piano Lessons</h3>
-                <p>Individual lessons adapted to fine motor development, improving sheet music reading, and strengthening rhythm in a positive environment.</p>
+                <p>Individual lessons adapted to fine motor development, improving sheet music reading and strengthening rhythm in a positive environment.</p>
             </div>
 
             <div class="bg-warm-beige text-terracotta-brown p-8 rounded-2xl shadow-2xl transform transition hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
                 <div class="text-dusty-rose text-5xl mb-6"><i class="fas fa-school"></i></div>
                 <h3 class="text-2xl font-bold mb-4">Music in Schools</h3>
-                <p>Activities in daycares and schools where children explore instruments, sing, and develop memory and teamwork.</p>
+                <p>Activities in daycares and schools where children explore instruments, sing, develop rhythm, and learn basic music reading.</p>
             </div>
 
             <div class="bg-warm-beige text-terracotta-brown p-8 rounded-2xl shadow-2xl transform transition hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
                 <div class="text-dusty-rose text-5xl mb-6"><i class="fas fa-hands-holding-child"></i></div>
-                <h3 class="text-2xl font-bold mb-4">Children with Special Needs</h3>
-                <p>Valuable programs that help improve communication, express emotions, and provide a sense of belonging and achievement.</p>
+                <h3 class="text-2xl font-bold mb-4">Special Needs Program</h3>
+                <p>Valuable programs that improve communication, emotional expression, and focus, providing a sense of achievement and belonging.</p>
             </div>
-
         </div>
     </div>
 </section>
 
 <section class="py-16 bg-dusty-rose relative overflow-hidden" data-aos="fade-up">
-    
     <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10 blur-2xl"></div>
     <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-48 h-48 rounded-full bg-terracotta-brown opacity-20 blur-xl"></div>
 
     <div class="container mx-auto px-6 relative z-10">
         <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-            
             <div class="w-40 md:w-48 flex-shrink-0 rounded-full p-1.5 shadow-2xl transform transition duration-500 hover:scale-105 bg-[linear-gradient(to_bottom,#E61C24_50%,#162A4E_50%)]" data-aos="zoom-in" data-aos-delay="100">
                 <img src="../assets/stepup-logo.png" alt="StepUp For Students Logo" class="w-full h-auto rounded-full bg-white">
             </div>
@@ -122,12 +156,10 @@
             <div class="text-center md:text-left text-warm-beige max-w-lg">
                 <h3 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight tracking-wide">Proud Providers</h3>
                 <p class="text-lg md:text-xl opacity-90 mb-6 leading-relaxed">We accept <span class="font-bold text-white">StepUp</span> scholarships to make high-quality music education accessible to more families in Miami.</p>
-                
-                <a href="#contact" class="inline-block border-2 border-warm-beige text-warm-beige hover:bg-warm-beige hover:text-dusty-rose px-8 py-3 rounded-full font-bold transition shadow-lg">
+                <a href="contacto.html" class="inline-block border-2 border-warm-beige text-warm-beige hover:bg-warm-beige hover:text-dusty-rose px-8 py-3 rounded-full font-bold transition shadow-lg">
                     Apply with your scholarship today
                 </a>
             </div>
-
         </div>
     </div>
 </section>
@@ -144,13 +176,14 @@
     </div>
 </footer>
 
+<a href="https://wa.me/+17863176384" target="_blank" rel="noopener noreferrer" 
+   class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:bg-[#128C7E] transition-all transform hover:-translate-y-2 z-50">
+    <i class="fab fa-whatsapp text-4xl"></i>
+</a>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({
-        duration: 800, 
-        once: true,
-        offset: 100
-    });
+    AOS.init({ duration: 800, once: true, offset: 100 });
 
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
@@ -173,38 +206,7 @@
     }
 
     btn.addEventListener('click', toggleMenu);
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', toggleMenu);
-    });
+    mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 </script>
-<a href="https://wa.me/+17863176384" target="_blank" rel="noopener noreferrer" 
-       class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:bg-[#128C7E] transition-all transform hover:-translate-y-2 z-50">
-        <i class="fab fa-whatsapp text-4xl"></i>
-    </a>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        
-        // CARGA DINÁMICA DEL NAVBAR
-        fetch('./js/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-placeholder').innerHTML = data;
-                // Re-inicializar el menú móvil después de cargar el HTML
-                initMobileMenu();
-            });
-
-        function initMobileMenu() {
-            const btn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
-            if(btn && menu) {
-                btn.onclick = () => {
-                    const isOpen = menu.classList.contains('opacity-100');
-                    menu.classList.toggle('opacity-100', !isOpen);
-                    menu.classList.toggle('pointer-events-auto', !isOpen);
-                };
-            }
-        }
-    </script>
 </body>
 </html>
