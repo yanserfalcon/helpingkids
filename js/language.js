@@ -1,37 +1,64 @@
-// js/language.js
+// Archivo: js/language.js
 
+// 1. Diccionario de traducción de páginas (Soporta nombres con y sin .html)
+const routes = {
+    'es-en': {
+        '/contacto': '/contact',
+        '/contacto.html': '/contact.html',
+        '/nosotros': '/about-us',
+        '/nosotros.html': '/about-us.html',
+        '/servicios': '/services',
+        '/servicios.html': '/services.html'
+    },
+    'en-es': {
+        '/contact': '/contacto',
+        '/contact.html': '/contacto.html',
+        '/about-us': '/nosotros',
+        '/about-us.html': '/nosotros.html',
+        '/services': '/servicios',
+        '/services.html': '/servicios.html'
+    }
+};
+
+// 2. Autodetección al cargar la página
 (function() {
-    // 1. Evitar bucles en local
     if (window.location.protocol === 'file:') return;
 
-    const path = window.location.pathname;
+    let path = window.location.pathname;
     const isEnPage = path.startsWith('/en');
     let userPref = localStorage.getItem('app_lang');
 
-    // 2. Si no hay preferencia, detectamos el navegador
     if (!userPref) {
         const browserLang = navigator.language || navigator.userLanguage;
         userPref = browserLang.toLowerCase().startsWith('es') ? 'es' : 'en';
         localStorage.setItem('app_lang', userPref);
     }
 
-    // 3. Redirección automática inicial
     if (userPref === 'en' && !isEnPage) {
-        window.location.href = '/en' + (path === '/' ? '' : path);
+        let translatedPath = routes['es-en'][path] || path;
+        window.location.href = '/en' + (translatedPath === '/' ? '' : translatedPath);
     } else if (userPref === 'es' && isEnPage) {
-        window.location.href = path.replace(/^\/en/, '') || '/';
+        let basePath = path.replace(/^\/en/, '') || '/';
+        let translatedPath = routes['en-es'][basePath] || basePath;
+        window.location.href = translatedPath;
     }
 })();
 
+// 3. Función al hacer clic en el botón del menú
 function switchLanguage(lang) {
     localStorage.setItem('app_lang', lang);
-    const path = window.location.pathname;
+    let path = window.location.pathname;
 
     if (lang === 'en') {
         if (!path.startsWith('/en')) {
-            window.location.href = '/en' + (path === '/' ? '' : path);
+            let translatedPath = routes['es-en'][path] || path;
+            window.location.href = '/en' + (translatedPath === '/' ? '' : translatedPath);
         }
     } else {
-        window.location.href = path.replace(/^\/en/, '') || '/';
+        if (path.startsWith('/en')) {
+            let basePath = path.replace(/^\/en/, '') || '/';
+            let translatedPath = routes['en-es'][basePath] || basePath;
+            window.location.href = translatedPath;
+        }
     }
 }
