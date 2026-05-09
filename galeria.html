@@ -59,23 +59,30 @@
                 </div>
         </div>
     </div>
+    <footer class="bg-terracotta-brown py-12 text-warm-beige text-center">
+        <div class="container mx-auto px-6">
+            <p class="mb-2 text-lg"><i class="fas fa-map-pin text-golden-tan mr-2"></i> 4704 SW 136th Place, Miami, FL 33175</p>
+            <p class="mb-6"><i class="fas fa-envelope text-golden-tan mr-2"></i> taniagarcia.151972@gmail.com</p>
+            <p class="text-sm opacity-75">&copy; 2026 HelpingKids. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script>
         // 1. EL INVENTARIO DE TUS FOTOS Y VIDEOS
         // Cada vez que subas un archivo a "assets/gallery/", agrégalo a esta lista.
         const mediaItems = [
-            { type: 'image', file: 'img (1).jpg' },
-            { type: 'image', file: 'img (2).jpg' },
-            { type: 'image', file: 'img (3).jpg' },
-            { type: 'image', file: 'img (4).jpg' },
-            { type: 'image', file: 'img (5).jpg' },
-            { type: 'image', file: 'img (6).jpg' },
-            { type: 'image', file: 'img (7).jpg' },
-            { type: 'image', file: 'img (8).jpg' },
-            { type: 'image', file: 'img (9).jpg' },
-            { type: 'image', file: 'img (10).jpg' },
-            { type: 'image', file: 'img (11).jpg' },
-            { type: 'image', file: 'img (12).jpg' },
+            { type: 'image', file: 'img (1).jpeg' },
+            { type: 'image', file: 'img (2).jpeg' },
+            { type: 'image', file: 'img (3).jpeg' },
+            { type: 'image', file: 'img (4).jpeg' },
+            { type: 'image', file: 'img (5).jpeg' },
+            { type: 'image', file: 'img (6).jpeg' },
+            { type: 'image', file: 'img (7).jpeg' },
+            { type: 'image', file: 'img (8).jpeg' },
+            { type: 'image', file: 'img (9).jpeg' },
+            { type: 'image', file: 'img (10).jpeg' },
+            { type: 'image', file: 'img (11).jpeg' },
+            { type: 'image', file: 'img (12).jpeg' },
 
             { type: 'video', file: 'vid (1).mp4' },
             { type: 'video', file: 'vid (2).mp4' },
@@ -88,7 +95,7 @@
 
         // 2. FUNCIÓN PARA DIBUJAR LA GALERÍA AUTOMÁTICAMENTE
         const grid = document.getElementById('gallery-grid');
-        const basePath = 'assets/gallery/';
+        const basePath = './assets/gallery/';
 
         mediaItems.forEach((item, index) => {
             const fullPath = basePath + item.file;
