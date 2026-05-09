@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Galería - Helping Kids Piano Lessons</title>
+    
+    <script src="./js/language.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-sage': '#4a5538',
+                        'sage-green': '#6b7c5c',
+                        'warm-beige': '#f5f5dc',
+                        'terracotta-brown': '#8b4513',
+                        'golden-tan': '#d2b48c',
+                        'dark-earth': '#5C4435',
+                        'dusty-rose': '#A76D5E',
+                    },
+                    fontFamily: {
+                        'varela': ['"Varela Round"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .gallery-item:hover .overlay { opacity: 1; }
+    </style>
+</head>
+<body class="bg-warm-beige font-varela text-dark-earth">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="relative pt-24 pb-16 bg-deep-sage overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-sage-green to-[#5c684c] opacity-90"></div>
+        <div class="container mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-warm-beige to-white drop-shadow-sm">Nuestros Momentos</h1>
+            <p class="text-xl md:text-2xl text-warm-beige/90 drop-shadow-md">Explora la magia musical de nuestros estudiantes.</p>
+        </div>
+    </section>
+
+    <section class="py-16 container mx-auto px-6 min-h-[50vh]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="gallery-grid">
+            </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col items-center justify-center p-4 backdrop-blur-md transition-all duration-300">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-dusty-rose transition text-5xl">&times;</button>
+        <div class="w-full max-w-5xl flex items-center justify-center">
+            <div id="lightbox-content" class="w-full h-full flex justify-center items-center">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. EL INVENTARIO DE TUS FOTOS Y VIDEOS
+        // Cada vez que subas un archivo a "assets/gallery/", agrégalo a esta lista.
+        const mediaItems = [
+            { type: 'image', file: 'img (1).jpg' },
+            { type: 'image', file: 'img (2).jpg' },
+            { type: 'image', file: 'img (3).jpg' },
+            { type: 'image', file: 'img (4).jpg' },
+            { type: 'image', file: 'img (5).jpg' },
+            { type: 'image', file: 'img (6).jpg' },
+            { type: 'image', file: 'img (7).jpg' },
+            { type: 'image', file: 'img (8).jpg' },
+            { type: 'image', file: 'img (9).jpg' },
+            { type: 'image', file: 'img (10).jpg' },
+            { type: 'image', file: 'img (11).jpg' },
+            { type: 'image', file: 'img (12).jpg' },
+
+            { type: 'video', file: 'vid (1).mp4' },
+            { type: 'video', file: 'vid (2).mp4' },
+            { type: 'video', file: 'vid (3).mp4' },
+            { type: 'video', file: 'vid (4).mp4' },
+            // { type: 'image', file: 'foto2.jpg' }, <-- Quítale las dos barras (//) para activarlo
+            // { type: 'image', file: 'foto3.jpg' },
+            // { type: 'video', file: 'concierto.mp4' }
+        ];
+
+        // 2. FUNCIÓN PARA DIBUJAR LA GALERÍA AUTOMÁTICAMENTE
+        const grid = document.getElementById('gallery-grid');
+        const basePath = 'assets/gallery/';
+
+        mediaItems.forEach((item, index) => {
+            const fullPath = basePath + item.file;
+            const div = document.createElement('div');
+            
+            // Le damos animaciones AOS a medida que aparecen
+            div.className = 'gallery-item relative cursor-pointer overflow-hidden rounded-xl shadow-lg group bg-white';
+            div.setAttribute('data-aos', 'fade-up');
+            div.setAttribute('data-aos-delay', (index * 50).toString());
+            div.onclick = () => openLightbox(fullPath, item.type);
+
+            if (item.type === 'image') {
+                div.innerHTML = `
+                    <img src="${fullPath}" alt="Galería HelpingKids" loading="lazy" class="w-full h-64 object-cover transition duration-700 group-hover:scale-110">
+                    <div class="overlay absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                        <span class="text-white border-2 border-white font-bold px-6 py-2 rounded-full">Ver Foto</span>
+                    </div>
+                `;
+            } else if (item.type === 'video') {
+                div.innerHTML = `
+                    <div class="w-full h-64 bg-slate-800 flex items-center justify-center transition duration-700 group-hover:bg-slate-700">
+                        <i class="fas fa-play-circle text-6xl text-white/80 group-hover:text-white transition"></i>
+                    </div>
+                    <div class="overlay absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                        <span class="text-white border-2 border-white font-bold px-6 py-2 rounded-full">Reproducir</span>
+                    </div>
+                `;
+            }
+            grid.appendChild(div);
+        });
+
+        // 3. FUNCIONES DEL LIGHTBOX
+        function openLightbox(src, type) {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightbox-content');
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+
+            if (type === 'image') {
+                content.innerHTML = `<img src="${src}" class="max-h-[85vh] max-w-full rounded-xl shadow-2xl object-contain animate-[zoomIn_0.3s_ease-out]">`;
+            } else if (type === 'video') {
+                content.innerHTML = `
+                    <video controls autoplay class="max-h-[85vh] w-auto rounded-xl shadow-2xl animate-[zoomIn_0.3s_ease-out]">
+                        <source src="${src}" type="video/mp4">
+                        Tu navegador no soporta videos.
+                    </video>`;
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightbox-content');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            content.innerHTML = ''; // Detiene el video
+        }
+
+        // Cierra el lightbox si haces clic fuera de la foto
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this || e.target.id === 'lightbox-content') {
+                closeLightbox();
+            }
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        fetch('./js/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                const placeholder = document.getElementById('navbar-placeholder');
+                if(placeholder) {
+                    placeholder.innerHTML = data;
+                    initMobileMenu();
+                }
+            });
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                const toggleMenu = () => {
+                    const isOpen = menu.classList.contains('opacity-100');
+                    menu.classList.toggle('opacity-100', !isOpen);
+                    menu.classList.toggle('pointer-events-auto', !isOpen);
+                };
+                btn.onclick = toggleMenu;
+                document.querySelectorAll('.mobile-link').forEach(link => link.onclick = toggleMenu);
+            }
+        }
+    </script>
+</body>
+</html>
