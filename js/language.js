@@ -1,64 +1,89 @@
 // Archivo: js/language.js
 
-// 1. Diccionario de traducción de páginas (Soporta nombres con y sin .html)
-const routes = {
+// 1. Diccionario exacto de nombres de archivo (Soporta con y sin .html)
+const translations = {
     'es-en': {
-        '/contacto': '/contact',
-        '/contacto.html': '/contact.html',
-        '/nosotros': '/about-us',
-        '/nosotros.html': '/about-us.html',
-        '/servicios': '/services',
-        '/servicios.html': '/services.html'
+        'contacto.html': 'contact.html',
+        'contacto': 'contact',
+        'nosotros.html': 'about-us.html',
+        'nosotros': 'about-us',
+        'servicios.html': 'services.html',
+        'servicios': 'services',
+        'galeria.html': 'gallery.html',
+        'galeria': 'gallery',
+        '': '' // Para el index
     },
     'en-es': {
-        '/contact': '/contacto',
-        '/contact.html': '/contacto.html',
-        '/about-us': '/nosotros',
-        '/about-us.html': '/nosotros.html',
-        '/services': '/servicios',
-        '/services.html': '/servicios.html'
+        'contact.html': 'contacto.html',
+        'contact': 'contacto',
+        'about-us.html': 'nosotros.html',
+        'about-us': 'nosotros',
+        'services.html': 'servicios.html',
+        'services': 'servicios',
+        'gallery.html': 'galeria.html',
+        'gallery': 'galeria',
+        '': '' // Para el index
     }
 };
 
-// 2. Autodetección al cargar la página
+// 2. Autodetección inicial (Redirección automática)
 (function() {
     if (window.location.protocol === 'file:') return;
 
-    let path = window.location.pathname;
-    const isEnPage = path.startsWith('/en');
     let userPref = localStorage.getItem('app_lang');
-
     if (!userPref) {
         const browserLang = navigator.language || navigator.userLanguage;
         userPref = browserLang.toLowerCase().startsWith('es') ? 'es' : 'en';
         localStorage.setItem('app_lang', userPref);
     }
 
+    // Usamos la misma función robusta de abajo para redirigir si es necesario
+    const path = window.location.pathname;
+    const isEnPage = path.includes('/en');
+
     if (userPref === 'en' && !isEnPage) {
-        let translatedPath = routes['es-en'][path] || path;
-        window.location.href = '/en' + (translatedPath === '/' ? '' : translatedPath);
+        switchLanguage('en', true);
     } else if (userPref === 'es' && isEnPage) {
-        let basePath = path.replace(/^\/en/, '') || '/';
-        let translatedPath = routes['en-es'][basePath] || basePath;
-        window.location.href = translatedPath;
+        switchLanguage('es', true);
     }
 })();
 
-// 3. Función al hacer clic en el botón del menú
-function switchLanguage(lang) {
-    localStorage.setItem('app_lang', lang);
-    let path = window.location.pathname;
+// 3. Función del botón del Menú (Súper robusta)
+function switchLanguage(lang, isAuto = false) {
+    if (!isAuto) localStorage.setItem('app_lang', lang);
+    
+    // Obtenemos la ruta actual dividida en partes
+    let currentPath = window.location.pathname;
+    let segments = currentPath.split('/');
+    
+    // Sacamos el último pedazo (el nombre del archivo)
+    let filename = segments.pop() || ''; 
 
     if (lang === 'en') {
-        if (!path.startsWith('/en')) {
-            let translatedPath = routes['es-en'][path] || path;
-            window.location.href = '/en' + (translatedPath === '/' ? '' : translatedPath);
+        // Si no estamos ya en la carpeta EN
+        if (!segments.includes('en')) {
+            // Buscamos la traducción, si no existe, dejamos el mismo nombre (ej. index.html)
+            let translatedFile = translations['es-en'][filename] || filename;
+            
+            // Agregamos la carpeta 'en' y el archivo traducido
+            segments.push('en');
+            segments.push(translatedFile);
+            
+            window.location.href = segments.join('/');
         }
     } else {
-        if (path.startsWith('/en')) {
-            let basePath = path.replace(/^\/en/, '') || '/';
-            let translatedPath = routes['en-es'][basePath] || basePath;
-            window.location.href = translatedPath;
+        // Si queremos ir a Español y estamos dentro de EN
+        if (segments.includes('en')) {
+            // Buscamos la traducción
+            let translatedFile = translations['en-es'][filename] || filename;
+            
+            // Borramos la carpeta 'en' de la ruta
+            segments = segments.filter(folder => folder !== 'en');
+            
+            // Agregamos el archivo en español
+            segments.push(translatedFile);
+            
+            window.location.href = segments.join('/');
         }
     }
 }
