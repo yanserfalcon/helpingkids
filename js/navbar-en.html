@@ -1,40 +1,40 @@
 <div class="fixed top-4 left-0 w-full z-50 px-4 flex justify-center pointer-events-none">
     
-    <nav class="pointer-events-auto w-full max-w-5xl bg-white/40 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-full px-4 md:px-8 py-2 flex items-center justify-between transition-all duration-300">
+    <nav class="pointer-events-auto w-full max-w-5xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-full px-4 md:px-8 py-2 flex items-center justify-between transition-all duration-300">
         
-        <a href="index.html" class="flex items-center space-x-2 md:space-x-3">
-            <img src="../assets/logo4.png" alt="HelpingKids Logo" class="h-10 md:h-12 transition-transform duration-300 hover:scale-105">
+        <a href="index.html" class="flex items-center space-x-2 md:space-x-3 bg-white/30 px-3 py-1 rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-white/50">
+            <img src="../assets/logo4.png" alt="HelpingKids Logo" class="h-10 md:h-12 drop-shadow-md">
             <div class="flex flex-col leading-tight">
-                <span class="text-base md:text-xl font-bold text-dark-earth">HelpingKids</span>
-                <span class="text-[8px] md:text-[10px] tracking-[0.2em] text-sage-green font-semibold uppercase">Piano Lessons</span>
+                <span class="text-base md:text-xl font-bold text-dark-earth" style="text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5);">HelpingKids</span>
+                <span class="text-[8px] md:text-[10px] tracking-[0.2em] text-[#4a5438] font-bold uppercase drop-shadow-sm" style="text-shadow: 0 0 5px rgba(255,255,255,1);">Piano Lessons</span>
             </div>
         </a>
         
-        <div class="hidden md:flex items-center space-x-6 lg:space-x-8 font-medium text-[15px] text-dark-earth">
-            <a href="services.html" class="hover:text-dusty-rose transition">Services</a>
-            <a href="about-us.html" class="hover:text-dusty-rose transition">About Us</a>
-            <a href="contact.html" class="hover:text-dusty-rose transition">Contact</a>
+        <div class="hidden md:flex items-center space-x-6 lg:space-x-8 font-medium text-[15px]">
+            <a href="services.html" class="text-dark-earth hover:text-dusty-rose transition" style="text-shadow: 0 0 8px rgba(255,255,255,0.7);">Services</a>
+            <a href="about-us.html" class="text-dark-earth hover:text-dusty-rose transition" style="text-shadow: 0 0 8px rgba(255,255,255,0.7);">About Us</a>
+            <a href="contact.html" class="text-dark-earth hover:text-dusty-rose transition" style="text-shadow: 0 0 8px rgba(255,255,255,0.7);">Contact</a>
             
             <div class="flex items-center space-x-3 border-l border-dark-earth/20 pl-6">
-                <button onclick="switchLanguage('es')" class="flex items-center gap-1 text-sm font-bold bg-white/30 hover:bg-white/60 px-4 py-2 rounded-full border border-white/40 shadow-sm transition text-dark-earth hover:text-dusty-rose">
+                <button onclick="switchLanguage('es')" class="flex items-center gap-1 text-sm font-bold bg-white/40 hover:bg-white/70 px-4 py-2 rounded-full border border-white/50 shadow-sm transition text-dark-earth hover:text-dusty-rose">
                     ES <i class="fas fa-globe text-xs"></i>
                 </button>
-                <a href="contact.html" class="bg-dusty-rose text-white px-6 py-2 rounded-full hover:bg-deep-sage transition shadow-md">
+                <a href="contact.html" class="bg-dusty-rose text-white px-6 py-2 rounded-full hover:bg-deep-sage transition shadow-md border border-white/20">
                     Enroll Now
                 </a>
             </div>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2 relative">
-            <i class="fas fa-bars text-2xl"></i>
+        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2 relative bg-white/30 rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm">
+            <i class="fas fa-bars text-xl" style="text-shadow: 0 0 8px rgba(255,255,255,0.8);"></i>
         </button>
     </nav>
 </div>
 
-<div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-8 text-2xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
-    <a href="services.html" class="mobile-link text-dark-earth">Services</a>
-    <a href="about-us.html" class="mobile-link text-dark-earth">About Us</a>
-    <a href="contact.html" class="mobile-link text-dark-earth">Contact</a>
-    <a href="contact.html" class="bg-dusty-rose text-white px-8 py-3 rounded-full mt-4">Enroll Now</a>
-    <button onclick="switchLanguage('es')" class="text-sage-green font-bold mt-8"><i class="fas fa-globe"></i> Cambiar a Español (ES)</button>
+<div id="mobile-menu" class="fixed inset-0 bg-warm-beige/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-8 text-2xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+    <a href="services.html" class="mobile-link text-terracotta-brown hover:text-dusty-rose">Services</a>
+    <a href="about-us.html" class="mobile-link text-terracotta-brown hover:text-dusty-rose">About Us</a>
+    <a href="contact.html" class="mobile-link text-terracotta-brown hover:text-dusty-rose">Contact</a>
+    <a href="contact.html" class="bg-dusty-rose text-white px-8 py-3 rounded-full mt-4 shadow-lg border border-white/30">Enroll Now</a>
+    <button onclick="switchLanguage('es')" class="text-dark-earth font-bold mt-8 flex items-center gap-2 bg-white/50 px-6 py-2 rounded-full"><i class="fas fa-globe"></i> Español (ES)</button>
 </div>
