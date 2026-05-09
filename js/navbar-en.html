@@ -1,38 +1,47 @@
-<nav style="background-color: #FCFAF7;" class="p-3 md:p-4 text-dark-earth sticky top-0 z-50 shadow-md border-b border-[#ece6dc]">
-    <div class="container mx-auto flex items-center justify-between">
+<div class="fixed top-4 left-0 w-full z-50 px-4 flex justify-center pointer-events-none">
+    
+    <nav class="pointer-events-auto w-full max-w-5xl bg-white/60 backdrop-blur-lg border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full px-5 md:px-8 py-2 flex items-center justify-between transition-all duration-300">
         
-        <a href="index.html" class="flex items-center space-x-3">
-            <img src="../assets/logo4.png" alt="HelpingKids Logo" class="h-12 md:h-14 transition-transform duration-300 hover:scale-105">
-            <div class="flex flex-col leading-tight">
-                <span class="text-xl md:text-2xl font-bold text-dark-earth">HelpingKids</span>
-                <span class="text-[10px] md:text-xs tracking-[0.25em] text-sage-green font-semibold">PIANO LESSONS</span>
+        <a href="index.html" class="flex items-center space-x-2 md:space-x-3">
+            <img src="../assets/logo4.png" alt="HelpingKids Logo" class="h-10 md:h-12 transition-transform duration-300 hover:scale-105">
+            <div class="flex flex-col leading-tight hidden sm:flex">
+                <span class="text-lg md:text-xl font-bold text-dark-earth">HelpingKids</span>
+                <span class="text-[9px] md:text-[10px] tracking-[0.25em] text-sage-green font-semibold">PIANO LESSONS</span>
             </div>
         </a>
         
-        <div class="space-x-8 hidden md:flex font-medium items-center text-[15px]">
+        <div class="hidden md:flex items-center space-x-6 lg:space-x-8 font-medium text-[15px] text-dark-earth">
             <a href="services.html" class="hover:text-dusty-rose transition">Services</a>
             <a href="about-us.html" class="hover:text-dusty-rose transition">About Us</a>
             <a href="contact.html" class="hover:text-dusty-rose transition">Contact</a>
-            <a href="contact.html" class="bg-dusty-rose text-white px-5 py-2 rounded-full hover:bg-deep-sage transition shadow">Enroll Now</a>
             
-            <button onclick="switchLanguage('es')" class="flex items-center gap-1 text-sm font-bold hover:text-dusty-rose transition">
-                ES <i class="fas fa-globe text-xs"></i>
-            </button>
+            <div class="flex items-center space-x-3 border-l border-dark-earth/20 pl-6">
+                <button onclick="switchLanguage('es')" class="flex items-center gap-1 text-sm font-bold bg-white/40 hover:bg-white/80 px-4 py-2 rounded-full border border-white/60 shadow-sm transition text-dark-earth hover:text-dusty-rose">
+                    ES <i class="fas fa-globe text-xs"></i>
+                </button>
+                
+                <a href="contact.html" class="bg-dusty-rose text-white px-6 py-2 rounded-full hover:bg-deep-sage transition shadow-md">
+                    Enroll Now
+                </a>
+            </div>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2 z-50 relative">
-            <i class="fas fa-bars text-3xl"></i>
+        <button id="mobile-menu-btn" class="md:hidden text-dark-earth focus:outline-none p-2 relative">
+            <i class="fas fa-bars text-2xl"></i>
         </button>
-    </div>
+    </nav>
+</div>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-[#FCFAF7] flex flex-col items-center justify-center space-y-8 text-2xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
-        <a href="services.html" class="mobile-link hover:text-dusty-rose transition">Services</a>
-        <a href="about-us.html" class="mobile-link hover:text-dusty-rose transition">About Us</a>
-        <a href="contact.html" class="mobile-link hover:text-dusty-rose transition">Contact</a>
-        <a href="contact.html" class="bg-dusty-rose text-white px-6 py-3 rounded-full hover:bg-deep-sage transition shadow mt-4">Enroll Now</a>
-        
-        <button onclick="switchLanguage('es')" class="flex items-center gap-2 text-xl font-bold text-sage-green hover:text-dusty-rose transition mt-8">
-            <i class="fas fa-globe"></i> Cambiar a Español (ES)
-        </button>
-    </div>
-</nav>
+<div id="mobile-menu" class="fixed inset-0 bg-[#FCFAF7]/95 backdrop-blur-md flex flex-col items-center justify-center space-y-8 text-2xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+    <a href="services.html" class="mobile-link hover:text-dusty-rose transition text-dark-earth">Services</a>
+    <a href="about-us.html" class="mobile-link hover:text-dusty-rose transition text-dark-earth">About Us</a>
+    <a href="contact.html" class="mobile-link hover:text-dusty-rose transition text-dark-earth">Contact</a>
+    
+    <a href="contact.html" class="bg-dusty-rose text-white px-8 py-3 rounded-full hover:bg-deep-sage transition shadow-lg mt-4">
+        Enroll Now
+    </a>
+    
+    <button onclick="switchLanguage('es')" class="flex items-center gap-2 text-xl font-bold text-sage-green hover:text-dusty-rose transition mt-8">
+        <i class="fas fa-globe"></i> Cambiar a Español (ES)
+    </button>
+</div>
