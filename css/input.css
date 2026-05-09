@@ -8,3 +8,23 @@
   color: #A76D5E; /* Dusty Rose */
   font-size: 0.8em;
 }
+/* 1. Evita que la página se mueva a los lados */
+html, body {
+  overflow-x: hidden; /* Corta el contenido que se sale a la derecha */
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Corrige los márgenes negativos de las filas de Bootstrap */
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* 3. Asegura que las imágenes no empujen la pantalla */
+img {
+  max-width: 100%;
+  height: auto;
+}
