@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Galería - Helping Kids Piano Lessons</title>
-    <link rel="icon" type="image/png" href="./assets/favicon.png">
-    <link rel="apple-touch-icon" href=".assets/favicon.png">
-    <script src="./js/language.js"></script>
+    <title>Gallery - HelpingKids Piano Lessons</title>
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <script src="../js/language.js"></script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,8 +44,8 @@
     <section class="relative pt-24 pb-16 bg-deep-sage overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-sage-green to-[#5c684c] opacity-90"></div>
         <div class="container mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-warm-beige to-white drop-shadow-sm">Nuestros Momentos</h1>
-            <p class="text-xl md:text-2xl text-warm-beige/90 drop-shadow-md">Explora la magia musical de nuestros estudiantes.</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-warm-beige to-white drop-shadow-sm">Our Moments</h1>
+            <p class="text-xl md:text-2xl text-warm-beige/90 drop-shadow-md">Explore the musical magic of our students.</p>
         </div>
     </section>
 
@@ -52,6 +53,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="gallery-grid">
             </div>
     </section>
+
    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col items-center justify-center p-4 backdrop-blur-md transition-all duration-300">
         
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-dusty-rose transition text-5xl z-50">&times;</button>
@@ -64,18 +66,19 @@
                 </div>
         </div>
 
-        <p class="absolute bottom-8 text-white/50 text-sm md:hidden animate-pulse">Desliza para ver más &harr;</p>
+        <p class="absolute bottom-8 text-white/50 text-sm md:hidden animate-pulse">Swipe to see more &harr;</p>
     </div>
+
     <footer class="bg-terracotta-brown py-12 text-warm-beige text-center">
         <div class="container mx-auto px-6">
             <p class="mb-2 text-lg"><i class="fas fa-map-pin text-golden-tan mr-2"></i> 4704 SW 136th Place, Miami, FL 33175</p>
             <p class="mb-6"><i class="fas fa-envelope text-golden-tan mr-2"></i> taniagarcia.151972@gmail.com</p>
-            <p class="text-sm opacity-75">&copy; 2026 HelpingKids. Todos los derechos reservados.</p>
+            <p class="text-sm opacity-75">&copy; 2026 HelpingKids. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // 1. EL INVENTARIO DE TUS FOTOS Y VIDEOS
+        // 1. YOUR PHOTO AND VIDEO INVENTORY
         const mediaItems = [
             { type: 'image', file: 'img (1).jpeg' },
             { type: 'image', file: 'img (2).jpeg' },
@@ -95,10 +98,10 @@
         ];
 
         const grid = document.getElementById('gallery-grid');
-        const basePath = './assets/gallery/';
-        let currentIndex = 0; // Guardará el número de la foto que estamos viendo
+        const basePath = '../assets/gallery/';
+        let currentIndex = 0; 
 
-        // 2. DIBUJAR LA GALERÍA EN PANTALLA
+        // 2. DRAW THE GALLERY ON SCREEN
         mediaItems.forEach((item, index) => {
             const fullPath = basePath + item.file;
             const div = document.createElement('div');
@@ -106,14 +109,13 @@
             div.className = 'gallery-item relative cursor-pointer overflow-hidden rounded-xl shadow-lg group bg-white';
             div.setAttribute('data-aos', 'fade-up');
             div.setAttribute('data-aos-delay', (index * 50).toString());
-            // Ahora le pasamos el "index" (posición) a la función en lugar de la ruta directa
             div.onclick = () => openLightbox(index);
 
             if (item.type === 'image') {
                 div.innerHTML = `
-                    <img src="${fullPath}" alt="Galería HelpingKids" loading="lazy" class="w-full h-64 object-cover transition duration-700 group-hover:scale-110">
+                    <img src="${fullPath}" alt="HelpingKids Gallery" loading="lazy" class="w-full h-64 object-cover transition duration-700 group-hover:scale-110">
                     <div class="overlay absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                        <span class="text-white border-2 border-white font-bold px-6 py-2 rounded-full">Ver Foto</span>
+                        <span class="text-white border-2 border-white font-bold px-6 py-2 rounded-full">View Photo</span>
                     </div>
                 `;
             } else if (item.type === 'video') {
@@ -122,16 +124,16 @@
                         <i class="fas fa-play-circle text-6xl text-white/80 group-hover:text-white transition"></i>
                     </div>
                     <div class="overlay absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                        <span class="text-white border-2 border-white font-bold px-6 py-2 rounded-full">Reproducir</span>
+                        <span class="text-white border-2 border-white font-bold px-6 py-2 rounded-full">Play</span>
                     </div>
                 `;
             }
             grid.appendChild(div);
         });
 
-        // 3. ABRIR EL LIGHTBOX
+        // 3. OPEN THE LIGHTBOX
         function openLightbox(index) {
-            currentIndex = index; // Actualizamos la foto actual
+            currentIndex = index; 
             const item = mediaItems[currentIndex];
             const fullPath = basePath + item.file;
             
@@ -146,16 +148,16 @@
                 content.innerHTML = `
                     <video controls autoplay class="max-h-full max-w-full rounded-xl shadow-2xl animate-[zoomIn_0.3s_ease-out]">
                         <source src="${fullPath}" type="video/mp4">
-                        Tu navegador no soporta videos.
+                        Your browser does not support videos.
                     </video>`;
             }
         }
 
-        // 4. CAMBIAR FOTO/VIDEO (Siguiente o Anterior)
+        // 4. CHANGE PHOTO/VIDEO (Next or Previous)
         function changeMedia(direction) {
             currentIndex += direction;
             
-            // Si llega al final, vuelve al principio (y viceversa)
+            // Loop back to the start (and vice versa)
             if (currentIndex >= mediaItems.length) currentIndex = 0;
             if (currentIndex < 0) currentIndex = mediaItems.length - 1;
             
@@ -167,17 +169,17 @@
             const content = document.getElementById('lightbox-content');
             lightbox.classList.add('hidden');
             lightbox.classList.remove('flex');
-            content.innerHTML = ''; // Detiene el video al cerrar
+            content.innerHTML = ''; // Stops the video upon closing
         }
 
-        // Cierra si haces clic en el fondo negro
+        // Close when clicking on the dark background
         document.getElementById('lightbox').addEventListener('click', function(e) {
             if (e.target === this || e.target.id === 'lightbox-content') {
                 closeLightbox();
             }
         });
 
-        // 5. NAVEGACIÓN CON TECLADO
+        // 5. KEYBOARD NAVIGATION
         document.addEventListener('keydown', function(e) {
             if (!document.getElementById('lightbox').classList.contains('hidden')) {
                 if (e.key === 'ArrowLeft') changeMedia(-1);
@@ -186,7 +188,7 @@
             }
         });
 
-        // 6. NAVEGACIÓN DESLIZANDO EL DEDO (MÓVILES)
+        // 6. SWIPE NAVIGATION FOR MOBILE
         let touchStartX = 0;
         let touchEndX = 0;
         const lightboxArea = document.getElementById('lightbox');
@@ -201,9 +203,9 @@
         });
 
         function handleSwipe() {
-            // Requiere deslizar al menos 50 píxeles para que no sea accidental
-            if (touchEndX < touchStartX - 50) changeMedia(1); // Deslizó a la izquierda -> Siguiente
-            if (touchEndX > touchStartX + 50) changeMedia(-1); // Deslizó a la derecha -> Anterior
+            // Requires swiping at least 50 pixels
+            if (touchEndX < touchStartX - 50) changeMedia(1); // Swipe left -> Next
+            if (touchEndX > touchStartX + 50) changeMedia(-1); // Swipe right -> Previous
         }
     </script>
 
@@ -211,7 +213,7 @@
     <script>
         AOS.init({ duration: 800, once: true });
         
-        fetch('./js/navbar.html')
+        fetch('../js/navbar-en.html')
             .then(response => response.text())
             .then(data => {
                 const placeholder = document.getElementById('navbar-placeholder');
